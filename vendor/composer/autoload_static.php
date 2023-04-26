@@ -216,8 +216,8 @@ class ComposerStaticInitf59a2e0596b788bd404ec0cafcec9ae7
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'ZipStream\\' => 
         array (
@@ -349,8 +349,8 @@ class ComposerStaticInitf59a2e0596b788bd404ec0cafcec9ae7
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -525,13 +525,21 @@ class ComposerStaticInitf59a2e0596b788bd404ec0cafcec9ae7
     );
 
     public static $classMap = array (
+        'App\\Agent_douane' => __DIR__ . '/../..' . '/app/Agent_douane.php',
         'App\\Banniere' => __DIR__ . '/../..' . '/app/Banniere.php',
         'App\\Categorie' => __DIR__ . '/../..' . '/app/Categorie.php',
+        'App\\Chargement' => __DIR__ . '/../..' . '/app/Chargement.php',
         'App\\Commande' => __DIR__ . '/../..' . '/app/Commande.php',
         'App\\Commune' => __DIR__ . '/../..' . '/app/Commune.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Course' => __DIR__ . '/../..' . '/app/Course.php',
+        'App\\Declarant' => __DIR__ . '/../..' . '/app/Declarant.php',
+        'App\\Declaration' => __DIR__ . '/../..' . '/app/Declaration.php',
+        'App\\Destinataire' => __DIR__ . '/../..' . '/app/Destinataire.php',
+        'App\\Empotage' => __DIR__ . '/../..' . '/app/Empotage.php',
+        'App\\Entree_sortie' => __DIR__ . '/../..' . '/app/Entree_sortie.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Expediteur' => __DIR__ . '/../..' . '/app/Expediteur.php',
         'App\\FraisLivraison' => __DIR__ . '/../..' . '/app/FraisLivraison.php',
         'App\\Http\\Controllers\\AdmController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdmController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -557,6 +565,7 @@ class ComposerStaticInitf59a2e0596b788bd404ec0cafcec9ae7
         'App\\Http\\Requests\\UpdatePasswordFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdatePasswordFormRequest.php',
         'App\\Http\\Requests\\UpdateUserFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateUserFormRequest.php',
         'App\\Http\\Requests\\UserFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserFormRequest.php',
+        'App\\Poste' => __DIR__ . '/../..' . '/app/Poste.php',
         'App\\Produit' => __DIR__ . '/../..' . '/app/Produit.php',
         'App\\ProduitFichier' => __DIR__ . '/../..' . '/app/ProduitFichier.php',
         'App\\Profil' => __DIR__ . '/../..' . '/app/Profil.php',
@@ -570,6 +579,7 @@ class ComposerStaticInitf59a2e0596b788bd404ec0cafcec9ae7
         'App\\Services\\Stdfn\\StdfnFacade' => __DIR__ . '/../..' . '/app/Services/Stdfn/StdfnFacade.php',
         'App\\Services\\Stdfn\\StdfnServiceProvider' => __DIR__ . '/../..' . '/app/Services/Stdfn/StdfnServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Vehicule' => __DIR__ . '/../..' . '/app/Vehicule.php',
         'Barryvdh\\DomPDF\\Facade' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade.php',
         'Barryvdh\\DomPDF\\PDF' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/PDF.php',
         'Barryvdh\\DomPDF\\ServiceProvider' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/ServiceProvider.php',
