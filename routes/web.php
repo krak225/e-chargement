@@ -122,6 +122,8 @@ Route::get('vehicules','ParametresController@vehicules')->name('vehicules');
 Route::post('vehicules','ParametresController@SaveVehicule')->name('SaveVehicule');
 Route::get('vehicule/{vehicule_id}','ParametresController@DetailsVehicule')->name('DetailsVehicule');
 Route::post('supprimer_vehicule','ParametresController@SupprimerVehicule')->name('SupprimerVehicule');
+Route::get('sortie_vehicule/{vehicule_id}/{situation}','ParametresController@sortie_vehicule')->name('sortie_vehicule');
+Route::post('sortie_vehicule/{vehicule_id}','ParametresController@SaveSortieVehicule')->name('SaveSortieVehicule');
 
 Route::post('update_photo_vehicule/{vehicule_id}','ParametresController@UpdateVehiculePhoto')->name('UpdateVehiculePhoto');
 Route::post('upload_fichiers/{vehicule_id}','ParametresController@UpdateFichiers')->name('UpdateFichiers');

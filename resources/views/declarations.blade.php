@@ -116,7 +116,6 @@
 				<tr>
 					<th width=""></th>
 					<th width=""></th>
-					<th width="">Image</th>
 					<th width="">Nom</th>
 					<th width="">Catégorie</th>
 					<th width="">Prix</th>
@@ -129,7 +128,6 @@
 				<tr>
 					<td><a href="{{route('DetailsDeclaration',$declaration->declaration_id)}}"><i class="fa fa-cogs text-info" title="Afficher les détails"></i></a></td> 
 					<td><span class="btnModifierDeclaration" data-declaration_id="{{$declaration->declaration_id}}" style="cursor: pointer;"><i class="fa fa-edit text-warning" title="Modifier"></i></span></td> 
-					<td><img src="{{asset('images/declarations/'.$declaration->declaration_photo) }}" style="width:50px;height:auto;"/></td> 
 					<td>{{ $declaration->declaration_numero }}</td>
 					<td>{{ $declaration->declaration_numero }}</td>
 					<td style="text-align: right;">{{ number_format($declaration->declaration_date_creation, 0, '', ' ') }}</td>

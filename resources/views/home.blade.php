@@ -17,9 +17,9 @@
 					<i class="fa fa-circle fa-stack-2x text-info"></i> 
 					<i class="fa fa-clock-o fa-stack-1x text-white"></i> 
 				</span> 
-				<a class="clear" href="{{ route('frais_livraison') }}"> 
-					<span class="h3 block m-t-xs"><strong>FRAIS DE LIVRAISON</strong></span> 
-					<small class="text-muted text-uc">Frais de livraison</small> 
+				<a class="clear" href="{{ route('vehicules') }}"> 
+					<span class="h3 block m-t-xs"><strong>VÉHICULES</strong></span> 
+					<small class="text-muted text-uc">Gestion des véhicules</small> 
 				</a> 
 			</div>
 			
@@ -28,9 +28,20 @@
 					<i class="fa fa-circle fa-stack-2x text-info"></i> 
 					<i class="fa fa-clock-o fa-stack-1x text-white"></i> 
 				</span> 
-				<a class="clear" href="{{ route('courses') }}"> 
-					<span class="h3 block m-t-xs"><strong>COURSES</strong></span> 
-					<small class="text-muted text-uc">Gestion des courses</small> 
+				<a class="clear" href="{{ route('declarations') }}"> 
+					<span class="h3 block m-t-xs"><strong>DÉCLARATIONS</strong></span> 
+					<small class="text-muted text-uc">Gestion des déclarations</small> 
+				</a> 
+			</div>
+				
+			<div class="col-sm-8 col-md-4 padder-v b-r b-light"> 
+				<span class="fa-stack fa-2x pull-left m-r-sm"> 
+					<i class="fa fa-circle fa-stack-2x text-info"></i> 
+					<i class="fa fa-clock-o fa-stack-1x text-white"></i> 
+				</span> 
+				<a class="clear" href="{{ route('declarants') }}"> 
+					<span class="h3 block m-t-xs"><strong>DÉCLARANTS</strong></span> 
+					<small class="text-muted text-uc">Gestion des déclarants</small> 
 				</a> 
 			</div>
 				
@@ -46,9 +57,9 @@
 					<i class="fa fa-circle fa-stack-2x text-info"></i> 
 					<i class="fa fa-clock-o fa-stack-1x text-white"></i> 
 				</span> 
-				<a class="clear" href="{{ route('commandes') }}"> 
-					<span class="h3 block m-t-xs"><strong>COMMANDES</strong></span> 
-					<small class="text-muted text-uc">Suivi des commandes</small> 
+				<a class="clear" href="{{ route('chargements') }}"> 
+					<span class="h3 block m-t-xs"><strong>CHARGEMENTS</strong></span> 
+					<small class="text-muted text-uc">Suivi des chargements</small> 
 				</a> 
 			</div>
 			
@@ -57,9 +68,9 @@
 					<i class="fa fa-circle fa-stack-2x text-warning"></i> 
 					<i class="fa fa-product fa-stack-1x text-white"></i> 
 				</span>
-				<a class="clear" href="{{ route('produits') }}"> 
-					<span class="h3 block m-t-xs"><strong>PRODUITS</strong></span> 
-					<small class="text-muted text-uc">Gestion de stock</small> 
+				<a class="clear" href="{{ route('empotages') }}"> 
+					<span class="h3 block m-t-xs"><strong>EMPOTAGES</strong></span> 
+					<small class="text-muted text-uc">Gestion de empotages</small> 
 				</a> 
 			</div>
 			
@@ -69,8 +80,8 @@
 					<i class="fa fa-money fa-stack-1x text-white"></i> 
 				</span>
 				<a class="clear" href="{{ route('categories') }}"> 
-					<span class="h3 block m-t-xs"><strong>CATÉGORIES</strong></span> 
-					<small class="text-muted text-uc">Gestion des catégories</small> 
+					<span class="h3 block m-t-xs"><strong>ENTRÉE/SORTIE</strong></span> 
+					<small class="text-muted text-uc">Gestion des entrée/sortie</small> 
 				</a> 
 			</div> 
 			

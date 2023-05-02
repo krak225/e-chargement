@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 @if(!empty($vehicule))
 <ul class="breadcrumb no-border no-radius b-b b-light pull-in"> 
@@ -119,15 +120,15 @@ ul.no_liste_item li {
 							<i class="fa fa- icon-muted"></i> Date d'entrée 1
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_creation_sortie1) }}</span> 
+							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_sortie1) }}</span> 
 							<i class="fa fa- icon-muted"></i> Date sortie 1
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_creation_entree2) }}</span> 
+							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_entree2) }}</span> 
 							<i class="fa fa- icon-muted"></i> Date d'entrée 2
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_creation_sortie2) }}</span> 
+							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_sortie2) }}</span> 
 							<i class="fa fa- icon-muted"></i> Date sortie 2
 						</span>
 						<span class="list-group-item"> 
@@ -141,14 +142,14 @@ ul.no_liste_item li {
 						</span>
 						
 						<span class="list-group-item">
-							@if(Auth::user()->profil_id == 3)	
-								<span class="bg-light"><span class="label btn-warning btnEntreeSortieVehicule" data-situation="SortiePoste1" style="cursor:pointer;" title="Indiquer que le véhicule est sorti du poste 1"><i class="fa fa-edit"></i> Véhicule sorti</span></span> 
+							@if(Auth::user()->profil_id == 3)
+								<span class="bg-light"><span class="label btn-warning btnEntreeSortieVehicule" data-situation="sp1" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor:pointer;" data-title="Véhicule sorti du poste 1" title="Indiquer que le véhicule est sorti du poste 1"><i class="fa fa-edit"></i> Véhicule sorti du poste 1</span></span> 
 							@endif
-							@if(Auth::user()->profil_id == 4)	
-								<span class="bg-light"><span class="label btn-success btnEntreeSortieVehicule" data-situation="btnEntrePoste2" style="cursor:pointer;" title="Indiquer que le véhicule est sorti du poste 2"><i class="fa fa-edit"></i> Véhicule entré</span></span> 
-							@endif	
+							@if(Auth::user()->profil_id == 4)
+								<span class="bg-light"><span class="label btn-success btnEntreeSortieVehicule" data-situation="ep2" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor:pointer;" data-title="Véhicule est entré au poste 2" title="Indiquer que le véhicule est entré au poste 2"><i class="fa fa-edit"></i> Véhicule entré au poste 2</span></span> 
+							@endif
 							@if(Auth::user()->profil_id == 5)
-								<span class="bg-light"><span class="label btn-danger btnEntreeSortieVehicule" data-situation="SortiePoste2" style="cursor:pointer;" title="Indiquer que le véhicule est sorti du poste 2"><i class="fa fa-edit"></i> Véhicule sorti</span></span> 
+								<span class="bg-light"><span class="label btn-danger btnEntreeSortieVehicule" data-situation="sp2" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor:pointer;" data-title="Véhicule sorti du poste 2" title="Indiquer que le véhicule est sorti du poste 2"><i class="fa fa-edit"></i> Véhicule sorti du poste 2</span></span> 
 							@endif
 						</span>
 						

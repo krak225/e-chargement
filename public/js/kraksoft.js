@@ -4,9 +4,65 @@
 
 		var csrf_token = $('meta[name="csrf-token"]').attr('content');
 		
-	    
 		var base_url = $("#eco_base_url").val();
-		
+
+		$('.btnEntreeSortieVehicule').click(function(){
+			var vehicule_id  = $(this).attr('data-vehicule_id');
+			let situation = $(this).attr('data-situation');
+			let title = $(this).attr('data-title');
+
+			$('#dialogKrakPopup').krakPopup({
+				title: title,
+				url:base_url+'sortie_vehicule/'+vehicule_id+'/'+situation,
+				width:400,
+				contentMinHeight:100,
+				draggable:true,
+				closeButton:false,
+				submitButton:false,
+				customButton:{
+					show:true,
+					text:'Valider',
+					clickFn:function(){
+						
+						$.ajax({
+							headers:{'X-CSRF-TOKEN': csrf_token},
+							type:'post',
+							url: base_url + 'sortie_vehicule/'+vehicule_id,
+							data: $('#formSortieVehicule').serialize(),
+							success: function(e){
+								
+								noty({
+									dismissQueue: false,
+									force: true,
+									layout:'center',
+									modal: true,
+									theme: 'defaultTheme',
+									text:"Opération effectuée avec succès !",
+									type: 'success',
+									buttons: [
+										{addClass: 'btn btn-info ', text: 'OK', onClick: function($noty) {
+											$noty.close();
+
+											location.href = '';
+
+										}}]
+								});
+								
+								
+							},
+							error: function(){
+								notification("Erreur lors du traitement","error");
+							}
+						});
+					}
+				},
+				onFinish:function(){
+					
+				},
+							
+			});
+
+		});
 		
 		$('.datatable:not(".someClass")').each(function() {
 			

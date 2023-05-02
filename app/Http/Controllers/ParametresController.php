@@ -57,7 +57,7 @@ class ParametresController extends Controller
 		
 
 		$declaration = new Declaration();
-		$declaration->declarant_id				= $request->declarant_id;
+		$declaration->declarant_id				= Auth::user()->id;//$request->declarant_id;
 		$declaration->expediteur_id				= $request->expediteur_id;
 		$declaration->bureau_sortie_id			= $request->bureau_sortie_id;
 		$declaration->regime_id					= $request->regime_id;
@@ -72,7 +72,7 @@ class ParametresController extends Controller
 		$declaration->declaration_user			= $request->declaration_user;
 			
 
-		
+		/*
 		$fichier 		= $request->file('declaration_photo');
         $fileName	 	= 'declaration_'.''.time().'_'.Auth::user()->id.'_'.$fichier->getClientOriginalName();
         $original_name 	= $fichier->getClientOriginalName();
@@ -82,7 +82,7 @@ class ParametresController extends Controller
         $fichier->move(public_path('images/declarations'),$fileName);
 
 
-		$declaration->declaration_photo = $fileName;
+		$declaration->declaration_photo = $fileName;*/
 		$declaration->save();
 		
 		$declaration_id = $declaration->declaration_id;
@@ -102,11 +102,6 @@ class ParametresController extends Controller
 								->where(['declaration_statut'=>'VALIDE','declaration_id'=>$declaration_id])
 								->first();
 
-		//$declaration = DB::select('declaration_numero as Numero, declaration_date as Date  
-    				//from declaration 
-    				//WHERE declaration.declaration_statut="VALIDE"
-				//');
-		
 		if(!empty($declaration)){
 
 			$piecesjointes = DeclarationFichier::where(['declaration_id'=>$declaration_id])->get();
@@ -986,6 +981,40 @@ public function SupprimerVehicule(Request $request)
 	}else{
 		echo 0;
 	}
+}
+
+public function sortie_vehicule($vehicule_id, $situation){
+
+	$vehicule 	= Vehicule::where(['vehicule_id'=>$vehicule_id])->first();
+	
+	return view('sortie_vehicule_popup', ['vehicule'=>$vehicule, 'situation'=>$situation]);
+	
+}
+
+public function SaveSortieVehicule($vehicule_id, Request $request){
+
+	$vehicule = Vehicule::find($vehicule_id);
+	$situation = $request->situation;
+	
+	if($situation == 'sp1'){
+			
+		$vehicule->vehicule_date_sortie1 			= $request->date_entree_sortie;
+		$vehicule->vehicule_date_creation_sortie1 	= gmdate('Y-m-d H:i:s');
+
+	}else if($situation == 'ep2'){
+
+		$vehicule->vehicule_date_entree2 			= $request->date_entree_sortie;
+		$vehicule->vehicule_date_creation_entree2 	= gmdate('Y-m-d H:i:s');
+
+	}else if($situation == 'sp2'){
+		$vehicule->vehicule_date_sortie2 			= $request->date_entree_sortie;
+		$vehicule->vehicule_date_creation_sortie2 	= gmdate('Y-m-d H:i:s');
+	}
+
+	$vehicule->save();
+	
+	return 1;
+	
 }
 
 //Ajout de fichiers à la demande au tout le long du processus vehicule
