@@ -1,16 +1,18 @@
 -- --------------------------------------------------------
--- Hôte :                        localhost
--- Version du serveur:           5.1.72-community - MySQL Community Server (GPL)
--- SE du serveur:                Win32
--- HeidiSQL Version:             9.4.0.5125
+-- Hôte:                         127.0.0.1
+-- Version du serveur:           5.7.33 - MySQL Community Server (GPL)
+-- SE du serveur:                Win64
+-- HeidiSQL Version:             11.2.0.6213
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Export de la structure de la table echargement_db. agent_douane
+-- Listage de la structure de la table echargement_db. agent_douane
 CREATE TABLE IF NOT EXISTS `agent_douane` (
   `agent_douane_id` int(11) NOT NULL AUTO_INCREMENT,
   `agent_douane_date_creation` timestamp NULL DEFAULT NULL,
@@ -26,14 +28,14 @@ CREATE TABLE IF NOT EXISTS `agent_douane` (
   PRIMARY KEY (`agent_douane_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.agent_douane : 2 rows
+-- Listage des données de la table echargement_db.agent_douane : 2 rows
 /*!40000 ALTER TABLE `agent_douane` DISABLE KEYS */;
 INSERT INTO `agent_douane` (`agent_douane_id`, `agent_douane_date_creation`, `agent_douane_matricule`, `agent_douane_nom_prenoms`, `agent_douane_date_naiss`, `agent_douane_lieu_naiss`, `agent_douane_date_ambauche`, `agent_douane_user`, `agent_douane_date_modification`, `agent_douane_date_suppression`, `agent_douane_statut`) VALUES
 	(1, '2023-04-04 11:04:16', 'a345567', 'koffi konan antoine', '2023-04-02', 'bangolo', '2023-04-17', 'koi', '2023-04-25 11:04:16', '2023-04-25 11:04:16', 'valide'),
 	(2, '2023-04-19 11:04:16', 'a6670e', 'yapo ange bernard', '2023-04-04', 'bouake', '2023-04-02', 'albert', '2023-04-25 11:04:16', '2023-04-25 11:04:16', 'valide');
 /*!40000 ALTER TABLE `agent_douane` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. autreimage
+-- Listage de la structure de la table echargement_db. autreimage
 CREATE TABLE IF NOT EXISTS `autreimage` (
   `autreimage_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
@@ -44,13 +46,13 @@ CREATE TABLE IF NOT EXISTS `autreimage` (
   PRIMARY KEY (`autreimage_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.autreimage : 1 rows
+-- Listage des données de la table echargement_db.autreimage : 1 rows
 /*!40000 ALTER TABLE `autreimage` DISABLE KEYS */;
 INSERT INTO `autreimage` (`autreimage_id`, `user_id`, `produit_id`, `autreimage_photo`, `autreimage_date_creation`, `autreimage_statut`) VALUES
 	(31, 1, 7, 'produit_7_1620917105_1_avatar.jpg', '2021-05-13 14:45:05', 'valide');
 /*!40000 ALTER TABLE `autreimage` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. bureau_sortie
+-- Listage de la structure de la table echargement_db. bureau_sortie
 CREATE TABLE IF NOT EXISTS `bureau_sortie` (
   `bureau_sortie_id` int(11) NOT NULL,
   `bureau_sortie_date_creation` timestamp NULL DEFAULT NULL,
@@ -62,11 +64,11 @@ CREATE TABLE IF NOT EXISTS `bureau_sortie` (
   PRIMARY KEY (`bureau_sortie_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.bureau_sortie : 0 rows
+-- Listage des données de la table echargement_db.bureau_sortie : 0 rows
 /*!40000 ALTER TABLE `bureau_sortie` DISABLE KEYS */;
 /*!40000 ALTER TABLE `bureau_sortie` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. categorie
+-- Listage de la structure de la table echargement_db. categorie
 CREATE TABLE IF NOT EXISTS `categorie` (
   `categorie_id` int(11) NOT NULL AUTO_INCREMENT,
   `categorie_id_parent` int(11) DEFAULT '0',
@@ -78,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   PRIMARY KEY (`categorie_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.categorie : 5 rows
+-- Listage des données de la table echargement_db.categorie : 5 rows
 /*!40000 ALTER TABLE `categorie` DISABLE KEYS */;
 INSERT INTO `categorie` (`categorie_id`, `categorie_id_parent`, `categorie_nom`, `categorie_date_creation`, `categorie_date_modification`, `categorie_date_suppression`, `categorie_statut`) VALUES
 	(1, NULL, 'fruits', '2021-07-26 17:13:49', NULL, NULL, 'valide'),
@@ -88,7 +90,7 @@ INSERT INTO `categorie` (`categorie_id`, `categorie_id_parent`, `categorie_nom`,
 	(5, 1, 'legume', '2023-04-19 09:13:33', NULL, NULL, 'valide');
 /*!40000 ALTER TABLE `categorie` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. chargement
+-- Listage de la structure de la table echargement_db. chargement
 CREATE TABLE IF NOT EXISTS `chargement` (
   `chargement_id` int(11) NOT NULL,
   `pays_id` int(11) NOT NULL,
@@ -107,11 +109,11 @@ CREATE TABLE IF NOT EXISTS `chargement` (
   PRIMARY KEY (`chargement_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.chargement : 0 rows
+-- Listage des données de la table echargement_db.chargement : 0 rows
 /*!40000 ALTER TABLE `chargement` DISABLE KEYS */;
 /*!40000 ALTER TABLE `chargement` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. commande
+-- Listage de la structure de la table echargement_db. commande
 CREATE TABLE IF NOT EXISTS `commande` (
   `commande_id` int(11) NOT NULL AUTO_INCREMENT,
   `utilisateur_id` int(11) NOT NULL,
@@ -123,13 +125,13 @@ CREATE TABLE IF NOT EXISTS `commande` (
   PRIMARY KEY (`commande_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.commande : 1 rows
+-- Listage des données de la table echargement_db.commande : 1 rows
 /*!40000 ALTER TABLE `commande` DISABLE KEYS */;
 INSERT INTO `commande` (`commande_id`, `utilisateur_id`, `commande_montant_ht`, `commande_montant_ttc`, `commande_date_creation`, `commande_statut_livraison`, `commande_statut`) VALUES
 	(30, 1, 50000, 100000, '0000-00-00 00:00:00', 'non livree', 'brouillon');
 /*!40000 ALTER TABLE `commande` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. conteneur
+-- Listage de la structure de la table echargement_db. conteneur
 CREATE TABLE IF NOT EXISTS `conteneur` (
   `conteneur_id` int(11) NOT NULL,
   `conteneur_date_creation` timestamp NULL DEFAULT NULL,
@@ -141,11 +143,11 @@ CREATE TABLE IF NOT EXISTS `conteneur` (
   PRIMARY KEY (`conteneur_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.conteneur : 0 rows
+-- Listage des données de la table echargement_db.conteneur : 0 rows
 /*!40000 ALTER TABLE `conteneur` DISABLE KEYS */;
 /*!40000 ALTER TABLE `conteneur` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. cotation_declaration
+-- Listage de la structure de la table echargement_db. cotation_declaration
 CREATE TABLE IF NOT EXISTS `cotation_declaration` (
   `agent_douane_id` int(11) NOT NULL,
   `declaration_id` int(11) NOT NULL,
@@ -157,11 +159,11 @@ CREATE TABLE IF NOT EXISTS `cotation_declaration` (
   PRIMARY KEY (`agent_douane_id`,`declaration_id`,`role_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.cotation_declaration : 0 rows
+-- Listage des données de la table echargement_db.cotation_declaration : 0 rows
 /*!40000 ALTER TABLE `cotation_declaration` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cotation_declaration` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. cotation_declaration_effectif
+-- Listage de la structure de la table echargement_db. cotation_declaration_effectif
 CREATE TABLE IF NOT EXISTS `cotation_declaration_effectif` (
   `role_id` int(11) NOT NULL,
   `agent_douane_id` int(11) NOT NULL,
@@ -174,11 +176,11 @@ CREATE TABLE IF NOT EXISTS `cotation_declaration_effectif` (
   PRIMARY KEY (`chargement_id`,`role_id`,`agent_douane_id`,`detail_chargement_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.cotation_declaration_effectif : 0 rows
+-- Listage des données de la table echargement_db.cotation_declaration_effectif : 0 rows
 /*!40000 ALTER TABLE `cotation_declaration_effectif` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cotation_declaration_effectif` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. cotation_empotage
+-- Listage de la structure de la table echargement_db. cotation_empotage
 CREATE TABLE IF NOT EXISTS `cotation_empotage` (
   `role_id` int(11) NOT NULL,
   `agent_douane_id` int(11) NOT NULL,
@@ -190,11 +192,11 @@ CREATE TABLE IF NOT EXISTS `cotation_empotage` (
   PRIMARY KEY (`role_id`,`agent_douane_id`,`empotage_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.cotation_empotage : 0 rows
+-- Listage des données de la table echargement_db.cotation_empotage : 0 rows
 /*!40000 ALTER TABLE `cotation_empotage` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cotation_empotage` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. declarant
+-- Listage de la structure de la table echargement_db. declarant
 CREATE TABLE IF NOT EXISTS `declarant` (
   `declarant_id` int(11) NOT NULL AUTO_INCREMENT,
   `declarant_date_creation` timestamp NULL DEFAULT NULL,
@@ -209,14 +211,14 @@ CREATE TABLE IF NOT EXISTS `declarant` (
   PRIMARY KEY (`declarant_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.declarant : 2 rows
+-- Listage des données de la table echargement_db.declarant : 2 rows
 /*!40000 ALTER TABLE `declarant` DISABLE KEYS */;
 INSERT INTO `declarant` (`declarant_id`, `declarant_date_creation`, `declarant_nom`, `declarant_adresse`, `declarant_tel`, `declarant_mail`, `declarant_user`, `declarant_date_modification`, `declarant_date_suppression`, `declarant_statut`) VALUES
 	(1, '2023-04-25 10:40:58', 'declarant-01', 'bp 234 abidjan 01', '08066543', '01977654', 'ben', '2023-04-25 10:40:58', '2023-04-25 10:40:58', 'valide'),
 	(2, '2023-04-18 10:40:58', 'declarant-2', '02 bp 34488 ferke 02', '0255664432', '0133557799', 'kra', '2023-04-25 10:40:58', '2023-04-25 10:40:58', 'valide');
 /*!40000 ALTER TABLE `declarant` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. declaration
+-- Listage de la structure de la table echargement_db. declaration
 CREATE TABLE IF NOT EXISTS `declaration` (
   `declaration_id` int(11) NOT NULL AUTO_INCREMENT,
   `declarant_id` int(11) NOT NULL,
@@ -238,14 +240,14 @@ CREATE TABLE IF NOT EXISTS `declaration` (
   PRIMARY KEY (`declaration_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.declaration : 2 rows
+-- Listage des données de la table echargement_db.declaration : 2 rows
 /*!40000 ALTER TABLE `declaration` DISABLE KEYS */;
 INSERT INTO `declaration` (`declaration_id`, `declarant_id`, `expediteur_id`, `bureau_sortie_id`, `regime_id`, `moyen_transport_id`, `destinataire_id`, `pays_id`, `declaration_date_creation`, `declaration_date`, `declaration_date_fin`, `declaration_date_prise_compte`, `declaration_numero`, `declaration_user`, `declaration_date_modification`, `declaration_date_suppression`, `declaration_statut`) VALUES
 	(1, 1, 1, 1, 1, 1, 1, 1, NULL, NULL, NULL, NULL, 'decla-01', 'digui', '2023-04-25 10:28:03', '2023-04-25 10:28:03', 'valide'),
 	(2, 2, 2, 2, 2, 2, 2, 2, NULL, NULL, NULL, NULL, 'decla-2', 'abodou', '2023-04-25 10:28:03', '2023-04-25 10:28:03', 'valide');
 /*!40000 ALTER TABLE `declaration` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. destinataire
+-- Listage de la structure de la table echargement_db. destinataire
 CREATE TABLE IF NOT EXISTS `destinataire` (
   `destinataire_id` int(11) NOT NULL AUTO_INCREMENT,
   `destinataire_date_creation` timestamp NULL DEFAULT NULL,
@@ -260,14 +262,14 @@ CREATE TABLE IF NOT EXISTS `destinataire` (
   PRIMARY KEY (`destinataire_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.destinataire : 2 rows
+-- Listage des données de la table echargement_db.destinataire : 2 rows
 /*!40000 ALTER TABLE `destinataire` DISABLE KEYS */;
 INSERT INTO `destinataire` (`destinataire_id`, `destinataire_date_creation`, `destinataire_nom`, `destinataire_adresse`, `destinataire_tel`, `destinataire_mail`, `destinataire_user`, `destinataire_date_modification`, `destinataire_date_suppression`, `destinataire_statut`) VALUES
 	(1, '2023-04-03 10:59:20', 'destinataire-01', 'bp 34466 agboville ', '0525668899', '@yahoo.fr', 'car', '2023-04-25 10:59:20', '2023-04-25 10:59:20', 'valide'),
 	(2, '2023-04-19 10:59:20', 'destinataire-02', '01 bp 334466 bigerville 01', '04566773', '@gmail.com', 'youl', '2023-04-25 10:59:20', '2023-04-25 10:59:20', 'valide');
 /*!40000 ALTER TABLE `destinataire` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. detail_chargement
+-- Listage de la structure de la table echargement_db. detail_chargement
 CREATE TABLE IF NOT EXISTS `detail_chargement` (
   `chargement_id` int(11) NOT NULL,
   `detail_chargement_id` int(11) NOT NULL,
@@ -291,11 +293,11 @@ CREATE TABLE IF NOT EXISTS `detail_chargement` (
   PRIMARY KEY (`chargement_id`,`detail_chargement_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.detail_chargement : 0 rows
+-- Listage des données de la table echargement_db.detail_chargement : 0 rows
 /*!40000 ALTER TABLE `detail_chargement` DISABLE KEYS */;
 /*!40000 ALTER TABLE `detail_chargement` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. detail_declaration
+-- Listage de la structure de la table echargement_db. detail_declaration
 CREATE TABLE IF NOT EXISTS `detail_declaration` (
   `declaration_id` int(11) NOT NULL,
   `marchandise_id` int(11) NOT NULL,
@@ -321,11 +323,11 @@ CREATE TABLE IF NOT EXISTS `detail_declaration` (
   PRIMARY KEY (`declaration_id`,`marchandise_id`,`conteneur_id`,`detail_declaration_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.detail_declaration : 0 rows
+-- Listage des données de la table echargement_db.detail_declaration : 0 rows
 /*!40000 ALTER TABLE `detail_declaration` DISABLE KEYS */;
 /*!40000 ALTER TABLE `detail_declaration` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. detail_empotage
+-- Listage de la structure de la table echargement_db. detail_empotage
 CREATE TABLE IF NOT EXISTS `detail_empotage` (
   `marchandise_id` int(11) NOT NULL,
   `empotage_id` int(11) NOT NULL,
@@ -344,11 +346,11 @@ CREATE TABLE IF NOT EXISTS `detail_empotage` (
   PRIMARY KEY (`marchandise_id`,`empotage_id`,`conteneur_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.detail_empotage : 0 rows
+-- Listage des données de la table echargement_db.detail_empotage : 0 rows
 /*!40000 ALTER TABLE `detail_empotage` DISABLE KEYS */;
 /*!40000 ALTER TABLE `detail_empotage` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. dim_commune
+-- Listage de la structure de la table echargement_db. dim_commune
 CREATE TABLE IF NOT EXISTS `dim_commune` (
   `commune_id` int(11) NOT NULL AUTO_INCREMENT,
   `bureau_id` int(11) DEFAULT NULL,
@@ -357,7 +359,7 @@ CREATE TABLE IF NOT EXISTS `dim_commune` (
   PRIMARY KEY (`commune_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=122 DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.dim_commune : 10 rows
+-- Listage des données de la table echargement_db.dim_commune : 10 rows
 /*!40000 ALTER TABLE `dim_commune` DISABLE KEYS */;
 INSERT INTO `dim_commune` (`commune_id`, `bureau_id`, `commune_libelle`, `commune_statut`) VALUES
 	(1, 5, 'abobo', 'valide'),
@@ -372,7 +374,7 @@ INSERT INTO `dim_commune` (`commune_id`, `bureau_id`, `commune_libelle`, `commun
 	(10, 4, 'yopougon', 'valide');
 /*!40000 ALTER TABLE `dim_commune` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. dim_course
+-- Listage de la structure de la table echargement_db. dim_course
 CREATE TABLE IF NOT EXISTS `dim_course` (
   `course_id` int(11) NOT NULL AUTO_INCREMENT,
   `utilisateur_id` int(11) DEFAULT NULL,
@@ -390,11 +392,11 @@ CREATE TABLE IF NOT EXISTS `dim_course` (
   PRIMARY KEY (`course_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.dim_course : 0 rows
+-- Listage des données de la table echargement_db.dim_course : 0 rows
 /*!40000 ALTER TABLE `dim_course` DISABLE KEYS */;
 /*!40000 ALTER TABLE `dim_course` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. dim_frais_livraison
+-- Listage de la structure de la table echargement_db. dim_frais_livraison
 CREATE TABLE IF NOT EXISTS `dim_frais_livraison` (
   `frais_livraison_id` int(11) NOT NULL AUTO_INCREMENT,
   `commune_id_retrait` int(11) NOT NULL,
@@ -406,7 +408,7 @@ CREATE TABLE IF NOT EXISTS `dim_frais_livraison` (
   PRIMARY KEY (`frais_livraison_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.dim_frais_livraison : 26 rows
+-- Listage des données de la table echargement_db.dim_frais_livraison : 26 rows
 /*!40000 ALTER TABLE `dim_frais_livraison` DISABLE KEYS */;
 INSERT INTO `dim_frais_livraison` (`frais_livraison_id`, `commune_id_retrait`, `commune_id_livraison`, `frais_livraison_montant`, `frais_livraison_date_creation`, `frais_livraison_date_suppression`, `frais_livraison_statut`) VALUES
 	(1, 1, 2, 1000, '2021-07-24 22:58:12', '2021-07-25 07:32:42', 'supprime'),
@@ -437,7 +439,7 @@ INSERT INTO `dim_frais_livraison` (`frais_livraison_id`, `commune_id_retrait`, `
 	(26, 1, 2, 5000, '2023-04-17 09:51:09', NULL, 'valide');
 /*!40000 ALTER TABLE `dim_frais_livraison` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. empotage
+-- Listage de la structure de la table echargement_db. empotage
 CREATE TABLE IF NOT EXISTS `empotage` (
   `empotage_id` int(11) NOT NULL AUTO_INCREMENT,
   `pays_id` int(11) NOT NULL,
@@ -454,14 +456,14 @@ CREATE TABLE IF NOT EXISTS `empotage` (
   PRIMARY KEY (`empotage_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.empotage : 2 rows
+-- Listage des données de la table echargement_db.empotage : 2 rows
 /*!40000 ALTER TABLE `empotage` DISABLE KEYS */;
 INSERT INTO `empotage` (`empotage_id`, `pays_id`, `declarant_id`, `empotage_date_creation`, `empotage_date`, `empotage_date_depot`, `empotage_numero`, `empotage_bl_bm`, `empotage_user`, `empotage_date_modification`, `empotage_date_suppression`, `empotage_statut`) VALUES
 	(1, 1, 1, NULL, NULL, NULL, 'empotage-01', 'bl-bm-01', 'kenzo', '2023-04-25 10:35:33', '2023-04-25 10:35:33', 'valide'),
 	(2, 2, 2, NULL, NULL, NULL, 'empotage-02', 'bl-bm-02', 'dav', '2023-04-25 10:35:33', '2023-04-25 10:35:33', 'valide');
 /*!40000 ALTER TABLE `empotage` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. entree_sortie
+-- Listage de la structure de la table echargement_db. entree_sortie
 CREATE TABLE IF NOT EXISTS `entree_sortie` (
   `entree_sortie_id` int(11) NOT NULL,
   `entree_sortie_date_creation` timestamp NULL DEFAULT NULL,
@@ -471,11 +473,11 @@ CREATE TABLE IF NOT EXISTS `entree_sortie` (
   PRIMARY KEY (`entree_sortie_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.entree_sortie : 0 rows
+-- Listage des données de la table echargement_db.entree_sortie : 0 rows
 /*!40000 ALTER TABLE `entree_sortie` DISABLE KEYS */;
 /*!40000 ALTER TABLE `entree_sortie` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. expediteur
+-- Listage de la structure de la table echargement_db. expediteur
 CREATE TABLE IF NOT EXISTS `expediteur` (
   `expediteur_id` int(11) NOT NULL AUTO_INCREMENT,
   `expediteur_date_creation` timestamp NULL DEFAULT NULL,
@@ -490,14 +492,14 @@ CREATE TABLE IF NOT EXISTS `expediteur` (
   PRIMARY KEY (`expediteur_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.expediteur : 2 rows
+-- Listage des données de la table echargement_db.expediteur : 2 rows
 /*!40000 ALTER TABLE `expediteur` DISABLE KEYS */;
 INSERT INTO `expediteur` (`expediteur_id`, `expediteur_date_creation`, `expediteur_nom`, `expediteur_adresse`, `expediteur_tel`, `expediteur_mail`, `expediteur_user`, `expediteur_date_modification`, `expediteur_date_suppression`, `expediteur_statut`) VALUES
 	(1, '2023-04-25 10:46:43', 'exportateur-01', '04 bp 3366 daloa 04', '010755443321', '@yahoo.fr', 'denver', '2023-04-25 10:46:42', '2023-04-25 10:46:42', 'valide'),
 	(2, '2023-04-03 10:46:43', 'expediteur-02', 'bp 33448 abidjan 02', '075544332214', '@gmail.com', 'ali', '2023-04-25 10:46:42', '2023-04-25 10:46:42', 'valide');
 /*!40000 ALTER TABLE `expediteur` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. fonction
+-- Listage de la structure de la table echargement_db. fonction
 CREATE TABLE IF NOT EXISTS `fonction` (
   `fonction_id` int(11) NOT NULL,
   `fonction_nom` datetime NOT NULL,
@@ -507,11 +509,11 @@ CREATE TABLE IF NOT EXISTS `fonction` (
   PRIMARY KEY (`fonction_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.fonction : ~0 rows (environ)
+-- Listage des données de la table echargement_db.fonction : ~0 rows (environ)
 /*!40000 ALTER TABLE `fonction` DISABLE KEYS */;
 /*!40000 ALTER TABLE `fonction` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. kw_administrateur
+-- Listage de la structure de la table echargement_db. kw_administrateur
 CREATE TABLE IF NOT EXISTS `kw_administrateur` (
   `kw_administrateur_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `kw_administrateur_login` varchar(255) NOT NULL,
@@ -522,13 +524,13 @@ CREATE TABLE IF NOT EXISTS `kw_administrateur` (
   PRIMARY KEY (`kw_administrateur_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COMMENT='enregistre les administrateurs du site';
 
--- Export de données de la table echargement_db.kw_administrateur : 1 rows
+-- Listage des données de la table echargement_db.kw_administrateur : 1 rows
 /*!40000 ALTER TABLE `kw_administrateur` DISABLE KEYS */;
 INSERT INTO `kw_administrateur` (`kw_administrateur_id`, `kw_administrateur_login`, `kw_administrateur_pass`, `kw_administrateur_email`, `kw_administrateur_rang`, `kw_administrateur_statut`) VALUES
 	(10, 'admin', 'fece6adde0ec8c975e2b5ec91fce57ab1852fca4', 'admin@gmail.com', 1, 'active');
 /*!40000 ALTER TABLE `kw_administrateur` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. marchandise
+-- Listage de la structure de la table echargement_db. marchandise
 CREATE TABLE IF NOT EXISTS `marchandise` (
   `marchandise_id` int(11) NOT NULL,
   `marchandise_date_creation` timestamp NULL DEFAULT NULL,
@@ -542,11 +544,11 @@ CREATE TABLE IF NOT EXISTS `marchandise` (
   PRIMARY KEY (`marchandise_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.marchandise : 0 rows
+-- Listage des données de la table echargement_db.marchandise : 0 rows
 /*!40000 ALTER TABLE `marchandise` DISABLE KEYS */;
 /*!40000 ALTER TABLE `marchandise` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. migrations
+-- Listage de la structure de la table echargement_db. migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -554,11 +556,11 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Export de données de la table echargement_db.migrations : ~0 rows (environ)
+-- Listage des données de la table echargement_db.migrations : ~0 rows (environ)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. moyen_transport
+-- Listage de la structure de la table echargement_db. moyen_transport
 CREATE TABLE IF NOT EXISTS `moyen_transport` (
   `moyen_transport_id` int(11) NOT NULL,
   `moyen_transport_date_creation` timestamp NULL DEFAULT NULL,
@@ -570,11 +572,11 @@ CREATE TABLE IF NOT EXISTS `moyen_transport` (
   PRIMARY KEY (`moyen_transport_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.moyen_transport : 0 rows
+-- Listage des données de la table echargement_db.moyen_transport : 0 rows
 /*!40000 ALTER TABLE `moyen_transport` DISABLE KEYS */;
 /*!40000 ALTER TABLE `moyen_transport` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. panier
+-- Listage de la structure de la table echargement_db. panier
 CREATE TABLE IF NOT EXISTS `panier` (
   `panier_id` int(11) NOT NULL AUTO_INCREMENT,
   `commande_id` int(11) NOT NULL,
@@ -586,11 +588,11 @@ CREATE TABLE IF NOT EXISTS `panier` (
   PRIMARY KEY (`panier_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.panier : 0 rows
+-- Listage des données de la table echargement_db.panier : 0 rows
 /*!40000 ALTER TABLE `panier` DISABLE KEYS */;
 /*!40000 ALTER TABLE `panier` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. pays
+-- Listage de la structure de la table echargement_db. pays
 CREATE TABLE IF NOT EXISTS `pays` (
   `pays_id` int(11) NOT NULL AUTO_INCREMENT,
   `pays_date_creation` timestamp NULL DEFAULT NULL,
@@ -602,7 +604,7 @@ CREATE TABLE IF NOT EXISTS `pays` (
   PRIMARY KEY (`pays_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=209 DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.pays : 208 rows
+-- Listage des données de la table echargement_db.pays : 208 rows
 /*!40000 ALTER TABLE `pays` DISABLE KEYS */;
 INSERT INTO `pays` (`pays_id`, `pays_date_creation`, `pays_nom`, `pays_user`, `pays_date_modification`, `pays_date_suppression`, `pays_statut`) VALUES
 	(1, NULL, 'afghanistan', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'brouillon'),
@@ -815,7 +817,7 @@ INSERT INTO `pays` (`pays_id`, `pays_date_creation`, `pays_nom`, `pays_user`, `p
 	(208, NULL, 'zimbabwe', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'brouillon');
 /*!40000 ALTER TABLE `pays` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. plomb
+-- Listage de la structure de la table echargement_db. plomb
 CREATE TABLE IF NOT EXISTS `plomb` (
   `plomb_id` int(11) NOT NULL,
   `conteneur_id` int(11) NOT NULL,
@@ -828,11 +830,11 @@ CREATE TABLE IF NOT EXISTS `plomb` (
   PRIMARY KEY (`plomb_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.plomb : 0 rows
+-- Listage des données de la table echargement_db.plomb : 0 rows
 /*!40000 ALTER TABLE `plomb` DISABLE KEYS */;
 /*!40000 ALTER TABLE `plomb` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. poste
+-- Listage de la structure de la table echargement_db. poste
 CREATE TABLE IF NOT EXISTS `poste` (
   `poste_id` int(11) NOT NULL,
   `poste_date_creation` timestamp NULL DEFAULT NULL,
@@ -842,11 +844,11 @@ CREATE TABLE IF NOT EXISTS `poste` (
   PRIMARY KEY (`poste_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.poste : 0 rows
+-- Listage des données de la table echargement_db.poste : 0 rows
 /*!40000 ALTER TABLE `poste` DISABLE KEYS */;
 /*!40000 ALTER TABLE `poste` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. produit
+-- Listage de la structure de la table echargement_db. produit
 CREATE TABLE IF NOT EXISTS `produit` (
   `produit_id` int(11) NOT NULL AUTO_INCREMENT,
   `categorie_id` int(11) NOT NULL,
@@ -862,7 +864,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
   PRIMARY KEY (`produit_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.produit : 18 rows
+-- Listage des données de la table echargement_db.produit : 18 rows
 /*!40000 ALTER TABLE `produit` DISABLE KEYS */;
 INSERT INTO `produit` (`produit_id`, `categorie_id`, `produit_nom`, `produit_photo`, `produit_description`, `produit_prix`, `produit_stock`, `produit_date_creation`, `produit_date_modification`, `produit_date_suppression`, `produit_statut`) VALUES
 	(1, 3, 'sandwitch au poulet', 'https://images.anaca3.com/wp-content/uploads/2018/01/recette-sandwich-minceur-poulet-crudites-et-sauce-blanche-maison-702x336.jpg', 'sandwitch au poulet', 2500, NULL, '2021-01-22 22:00:00', '2021-05-13 15:28:41', '2021-06-21 16:46:15', 'supprime'),
@@ -885,7 +887,7 @@ INSERT INTO `produit` (`produit_id`, `categorie_id`, `produit_nom`, `produit_pho
 	(23, 4, 'test produit', 'produit_1681428187_2_télécharger.jpg', 'desc produit', 10000, NULL, '2023-04-13 23:23:07', NULL, NULL, 'valide');
 /*!40000 ALTER TABLE `produit` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. regime
+-- Listage de la structure de la table echargement_db. regime
 CREATE TABLE IF NOT EXISTS `regime` (
   `regime_id` int(11) NOT NULL,
   `regime_date_creation` timestamp NULL DEFAULT NULL,
@@ -897,11 +899,11 @@ CREATE TABLE IF NOT EXISTS `regime` (
   PRIMARY KEY (`regime_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.regime : 0 rows
+-- Listage des données de la table echargement_db.regime : 0 rows
 /*!40000 ALTER TABLE `regime` DISABLE KEYS */;
 /*!40000 ALTER TABLE `regime` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. reunion
+-- Listage de la structure de la table echargement_db. reunion
 CREATE TABLE IF NOT EXISTS `reunion` (
   `reunion_id` int(11) NOT NULL AUTO_INCREMENT,
   `reunion_ordre_jour` varchar(255) NOT NULL,
@@ -913,13 +915,13 @@ CREATE TABLE IF NOT EXISTS `reunion` (
   PRIMARY KEY (`reunion_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.reunion : ~1 rows (environ)
+-- Listage des données de la table echargement_db.reunion : ~0 rows (environ)
 /*!40000 ALTER TABLE `reunion` DISABLE KEYS */;
 INSERT INTO `reunion` (`reunion_id`, `reunion_ordre_jour`, `reunion_pv`, `reunion_date_creation`, `reunion_date_modification`, `reunion_date_suppression`, `reunion_statut`) VALUES
 	(1, 'réunion', 'réunion', '2021-07-07 15:55:01', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'valide');
 /*!40000 ALTER TABLE `reunion` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. role
+-- Listage de la structure de la table echargement_db. role
 CREATE TABLE IF NOT EXISTS `role` (
   `role_id` int(11) NOT NULL,
   `role_date_creation` timestamp NULL DEFAULT NULL,
@@ -931,11 +933,11 @@ CREATE TABLE IF NOT EXISTS `role` (
   PRIMARY KEY (`role_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.role : 0 rows
+-- Listage des données de la table echargement_db.role : 0 rows
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. society
+-- Listage de la structure de la table echargement_db. society
 CREATE TABLE IF NOT EXISTS `society` (
   `society_id` int(11) NOT NULL,
   `society_nom` varchar(255) NOT NULL,
@@ -945,11 +947,11 @@ CREATE TABLE IF NOT EXISTS `society` (
   PRIMARY KEY (`society_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.society : ~0 rows (environ)
+-- Listage des données de la table echargement_db.society : ~0 rows (environ)
 /*!40000 ALTER TABLE `society` DISABLE KEYS */;
 /*!40000 ALTER TABLE `society` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. tb_action
+-- Listage de la structure de la table echargement_db. tb_action
 CREATE TABLE IF NOT EXISTS `tb_action` (
   `action_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id_creation` int(11) NOT NULL DEFAULT '0',
@@ -961,11 +963,11 @@ CREATE TABLE IF NOT EXISTS `tb_action` (
   PRIMARY KEY (`action_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.tb_action : 0 rows
+-- Listage des données de la table echargement_db.tb_action : 0 rows
 /*!40000 ALTER TABLE `tb_action` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tb_action` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. tb_autorisation
+-- Listage de la structure de la table echargement_db. tb_autorisation
 CREATE TABLE IF NOT EXISTS `tb_autorisation` (
   `autorisation_id` int(11) NOT NULL AUTO_INCREMENT,
   `profil_id` int(11) DEFAULT NULL,
@@ -977,11 +979,11 @@ CREATE TABLE IF NOT EXISTS `tb_autorisation` (
   UNIQUE KEY `index 1` (`action_id`,`profil_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.tb_autorisation : 0 rows
+-- Listage des données de la table echargement_db.tb_autorisation : 0 rows
 /*!40000 ALTER TABLE `tb_autorisation` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tb_autorisation` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. tb_participants
+-- Listage de la structure de la table echargement_db. tb_participants
 CREATE TABLE IF NOT EXISTS `tb_participants` (
   `participant_id` int(11) NOT NULL AUTO_INCREMENT,
   `participant_nom` varchar(255) NOT NULL,
@@ -996,7 +998,7 @@ CREATE TABLE IF NOT EXISTS `tb_participants` (
   PRIMARY KEY (`participant_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.tb_participants : ~9 rows (environ)
+-- Listage des données de la table echargement_db.tb_participants : ~9 rows (environ)
 /*!40000 ALTER TABLE `tb_participants` DISABLE KEYS */;
 INSERT INTO `tb_participants` (`participant_id`, `participant_nom`, `participant_contact`, `participant_email`, `participant_fonction`, `participant_society`, `participant_date_creation`, `participant_date_modification`, `participant_date_suppression`, `participant_statut`) VALUES
 	(1, 'boussou', 78607985, 'juste@gmail.com', 'informaticien', 'burida', '2021-06-29 17:48:29', '2021-06-29 17:48:30', '2021-07-02 08:30:30', 'supprime'),
@@ -1010,7 +1012,7 @@ INSERT INTO `tb_participants` (`participant_id`, `participant_nom`, `participant
 	(9, 'kone seydou', 0, 'krak225@gmail.com', 'dg', 'burida', '2021-07-13 10:59:39', NULL, NULL, 'valide');
 /*!40000 ALTER TABLE `tb_participants` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. tb_password_resets
+-- Listage de la structure de la table echargement_db. tb_password_resets
 CREATE TABLE IF NOT EXISTS `tb_password_resets` (
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `token` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -1018,11 +1020,11 @@ CREATE TABLE IF NOT EXISTS `tb_password_resets` (
   KEY `password_resets_email_index` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Export de données de la table echargement_db.tb_password_resets : 0 rows
+-- Listage des données de la table echargement_db.tb_password_resets : 0 rows
 /*!40000 ALTER TABLE `tb_password_resets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tb_password_resets` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. tb_profil
+-- Listage de la structure de la table echargement_db. tb_profil
 CREATE TABLE IF NOT EXISTS `tb_profil` (
   `profil_id` int(11) NOT NULL AUTO_INCREMENT,
   `profil_libelle` varchar(50) DEFAULT NULL,
@@ -1030,7 +1032,7 @@ CREATE TABLE IF NOT EXISTS `tb_profil` (
   PRIMARY KEY (`profil_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.tb_profil : 5 rows
+-- Listage des données de la table echargement_db.tb_profil : 5 rows
 /*!40000 ALTER TABLE `tb_profil` DISABLE KEYS */;
 INSERT INTO `tb_profil` (`profil_id`, `profil_libelle`, `profil_statut`) VALUES
 	(1, 'ADMINISTRATEUR', 'valide'),
@@ -1040,16 +1042,16 @@ INSERT INTO `tb_profil` (`profil_id`, `profil_libelle`, `profil_statut`) VALUES
 	(5, 'SORTIE POSTE 2', 'valide');
 /*!40000 ALTER TABLE `tb_profil` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. tb_request
+-- Listage de la structure de la table echargement_db. tb_request
 CREATE TABLE IF NOT EXISTS `tb_request` (
   `request_id` int(11) NOT NULL AUTO_INCREMENT,
   `request_url` varchar(255) DEFAULT NULL,
   `request_querystring` varchar(255) DEFAULT NULL,
   `request_statut` enum('bon','faux','brouillon') DEFAULT 'brouillon',
   PRIMARY KEY (`request_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=917 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=930 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.tb_request : 914 rows
+-- Listage des données de la table echargement_db.tb_request : 929 rows
 /*!40000 ALTER TABLE `tb_request` DISABLE KEYS */;
 INSERT INTO `tb_request` (`request_id`, `request_url`, `request_querystring`, `request_statut`) VALUES
 	(1, 'http://webapp.test/images/produits/produit_1620598005_1_banner-bg__.jpg', 'images/produits/produit_1620598005_1_banner-bg__.jpg', 'brouillon'),
@@ -1967,10 +1969,23 @@ INSERT INTO `tb_request` (`request_id`, `request_url`, `request_querystring`, `r
 	(913, 'http://127.0.0.1:8000/images/produits/produit_1624888259_2_balloons-1903002_1920.png', 'images/produits/produit_1624888259_2_balloons-1903002_1920.png', 'brouillon'),
 	(914, 'http://127.0.0.1:8000/css/select2x2.png', 'css/select2x2.png', 'brouillon'),
 	(915, 'http://127.0.0.1:8000/password/eventually.ogg', 'password/eventually.ogg', 'brouillon'),
-	(916, 'http://127.0.0.1:8000/password/eventually.mp3', 'password/eventually.mp3', 'brouillon');
+	(916, 'http://127.0.0.1:8000/password/eventually.mp3', 'password/eventually.mp3', 'brouillon'),
+	(917, 'http://127.0.0.1:8000/modifier_vehicule/undefined', 'modifier_vehicule/undefined', 'brouillon'),
+	(918, 'http://127.0.0.1:8000/modifier_vehicule/undefined', 'modifier_vehicule/undefined', 'brouillon'),
+	(919, 'http://127.0.0.1:8000/modifier_vehicule/undefined', 'modifier_vehicule/undefined', 'brouillon'),
+	(920, 'http://127.0.0.1:8000/modifier_vehicule/undefined', 'modifier_vehicule/undefined', 'brouillon'),
+	(921, 'http://127.0.0.1:8000/modifier_vehicule/undefined', 'modifier_vehicule/undefined', 'brouillon'),
+	(922, 'http://127.0.0.1:8000/sortie_vehicule/undefined', 'sortie_vehicule/undefined', 'brouillon'),
+	(923, 'http://127.0.0.1:8000/sortie_vehicule/undefined', 'sortie_vehicule/undefined', 'brouillon'),
+	(924, 'http://127.0.0.1:8000/sortie_vehicule/undefined', 'sortie_vehicule/undefined', 'brouillon'),
+	(925, 'http://127.0.0.1:8000/sortie_vehicule/3', 'sortie_vehicule/3', 'brouillon'),
+	(926, 'http://127.0.0.1:8000/sortie_vehicule/3', 'sortie_vehicule/3', 'brouillon'),
+	(927, 'http://127.0.0.1:8000/sortie_vehicule/3', 'sortie_vehicule/3', 'brouillon'),
+	(928, 'http://127.0.0.1:8000/sortie_vehicule/3', 'sortie_vehicule/3', 'brouillon'),
+	(929, 'http://127.0.0.1:8000/css/select2.png', 'css/select2.png', 'brouillon');
 /*!40000 ALTER TABLE `tb_request` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. tb_reunion_participant
+-- Listage de la structure de la table echargement_db. tb_reunion_participant
 CREATE TABLE IF NOT EXISTS `tb_reunion_participant` (
   `reunion_id` int(11) NOT NULL,
   `participant_id` int(11) NOT NULL,
@@ -1979,14 +1994,14 @@ CREATE TABLE IF NOT EXISTS `tb_reunion_participant` (
   KEY `participant_id` (`participant_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.tb_reunion_participant : ~2 rows (environ)
+-- Listage des données de la table echargement_db.tb_reunion_participant : ~2 rows (environ)
 /*!40000 ALTER TABLE `tb_reunion_participant` DISABLE KEYS */;
 INSERT INTO `tb_reunion_participant` (`reunion_id`, `participant_id`, `signature_participant`) VALUES
 	(1, 1, 'juste'),
 	(2, 3, 'israel');
 /*!40000 ALTER TABLE `tb_reunion_participant` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. tb_service
+-- Listage de la structure de la table echargement_db. tb_service
 CREATE TABLE IF NOT EXISTS `tb_service` (
   `service_id` int(11) NOT NULL AUTO_INCREMENT,
   `direction_id` int(11) DEFAULT '0',
@@ -1998,11 +2013,11 @@ CREATE TABLE IF NOT EXISTS `tb_service` (
   PRIMARY KEY (`service_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='ex : bureau urbain, antenne de san pédro, siège, etc.';
 
--- Export de données de la table echargement_db.tb_service : 0 rows
+-- Listage des données de la table echargement_db.tb_service : 0 rows
 /*!40000 ALTER TABLE `tb_service` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tb_service` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. tb_users
+-- Listage de la structure de la table echargement_db. tb_users
 CREATE TABLE IF NOT EXISTS `tb_users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `profil_id` int(11) NOT NULL DEFAULT '2',
@@ -2018,7 +2033,7 @@ CREATE TABLE IF NOT EXISTS `tb_users` (
   `telephone` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `matricule` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `photo` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `adresse_email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `adresse_email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2031,16 +2046,17 @@ CREATE TABLE IF NOT EXISTS `tb_users` (
   `statut` enum('VALIDE','SUPPRIME') COLLATE utf8_unicode_ci DEFAULT 'VALIDE',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Export de données de la table echargement_db.tb_users : 2 rows
+-- Listage des données de la table echargement_db.tb_users : 3 rows
 /*!40000 ALTER TABLE `tb_users` DISABLE KEYS */;
 INSERT INTO `tb_users` (`id`, `profil_id`, `service_id`, `categorie_personnel_id`, `type_personnel_id`, `equipe_id`, `bureauid`, `nom`, `prenoms`, `civilite`, `date_naissance`, `telephone`, `matricule`, `photo`, `adresse_email`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `ip_derniere_connexion`, `date_derniere_connexion`, `statut_connexion`, `statut_signature`, `statut`) VALUES
-	(2, 1, 1, 4, 1, 0, 0, 'digui', 'berenger', 'm.', '2020-06-06', '0778607985', NULL, 'ph2_1624290376317img_20210607_164641.jpg', '', 'berenger', '$2y$10$fzhxfwi.ut.fpelsy9fk1eitums4ovpfpd.aqaqtd43x8zpzqamg2', 'i6gm3uc9fzpk30q2pjh6uoltnznaibu6ljjyh5hbuxxjc5bzrw7rl1nal1z7', '2021-03-09 22:00:00', '2023-04-25 17:25:05', '127.0.0.1', '2023-04-25 21:25:05', 'connecte', NULL, 'VALIDE'),
-	(1, 2, 1, 1, 1, 0, 0, 'kouassi', 'richmond', 'm.', '2020-06-06', '0708031746', NULL, 'ph1_1620901561048ph4_1615373851975135160607_10164592007005223_8140133135769055267_o.jpg', '', 'richmond', '$2y$10$tkKteQYut.uykNHXMxZKs.tDPVeTFW1W7Qb6RfV3DovfNDctfogJC', 'Grl2QOPb2NThlM7Z0uyl5PYVE6yAsWUyDmWLdF2PEDf8nxO1Y72zPu9yk16r', '2021-03-09 22:00:00', '2023-04-26 19:46:48', '127.0.0.1', '2023-04-26 19:46:48', 'connecte', NULL, 'VALIDE');
+	(2, 3, 1, 4, 1, 0, 0, 'DIGUI', 'BERENGER', 'm.', '2020-06-06', '0778607985', NULL, 'ph2_1624290376317img_20210607_164641.jpg', '', 'berenger', '$2y$10$tkKteQYut.uykNHXMxZKs.tDPVeTFW1W7Qb6RfV3DovfNDctfogJC', 'PQZwaZ9Vn3DmibjZaYgastIRkOtuzEPMQEkUnTPOCviDhSCZ10AL83qp1t0z', '2021-03-09 22:00:00', '2023-05-01 23:56:33', '127.0.0.1', '2023-05-01 23:56:33', 'connecte', NULL, 'VALIDE'),
+	(1, 4, 1, 1, 1, 0, 0, 'KOUASSI', 'RICHMOND', 'm.', '2020-06-06', '0708031746', NULL, 'ph1_1620901561048ph4_1615373851975135160607_10164592007005223_8140133135769055267_o.jpg', '', 'richmond', '$2y$10$tkKteQYut.uykNHXMxZKs.tDPVeTFW1W7Qb6RfV3DovfNDctfogJC', 'zHhlbuJdOwU9FIebnn7ZRqewIE50pSBcPZ8J6935CbY5kxA5u3vUBszOtuk7', '2021-03-09 22:00:00', '2023-05-01 22:23:23', '127.0.0.1', '2023-05-01 22:23:23', 'connecte', NULL, 'VALIDE'),
+	(3, 5, 1, 1, 1, 0, 0, 'YAO', 'VALENTIN', NULL, '2023-05-01', '0707090196', NULL, NULL, '', 'valentin', '$2y$10$tkKteQYut.uykNHXMxZKs.tDPVeTFW1W7Qb6RfV3DovfNDctfogJC', 'aRUROQAlZCufTNWVkjAUEWEBQ68AhcaJE6hkyqVgnqFkCNH833v7tZCspkEA', '2023-05-01 23:12:35', '2023-05-01 23:15:33', '127.0.0.1', '2023-05-01 23:15:33', 'connecte', NULL, 'VALIDE');
 /*!40000 ALTER TABLE `tb_users` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. tb_users_rich*
+-- Listage de la structure de la table echargement_db. tb_users_rich*
 CREATE TABLE IF NOT EXISTS `tb_users_rich*` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `profil_id` int(11) NOT NULL DEFAULT '2',
@@ -2071,7 +2087,7 @@ CREATE TABLE IF NOT EXISTS `tb_users_rich*` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Export de données de la table echargement_db.tb_users_rich* : 5 rows
+-- Listage des données de la table echargement_db.tb_users_rich* : 5 rows
 /*!40000 ALTER TABLE `tb_users_rich*` DISABLE KEYS */;
 INSERT INTO `tb_users_rich*` (`id`, `profil_id`, `service_id`, `categorie_personnel_id`, `type_personnel_id`, `equipe_id`, `bureauid`, `nom`, `prenoms`, `civilite`, `date_naissance`, `telephone`, `matricule`, `photo`, `adresse_email`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `ip_derniere_connexion`, `date_derniere_connexion`, `statut_connexion`, `statut_signature`, `statut`) VALUES
 	(2, 1, 1, 4, 1, 0, 0, 'digui', 'berenger', 'm.', '2020-06-06', '0778607985', NULL, 'ph2_1624290376317img_20210607_164641.jpg', '', 'berenger', '$2y$10$fzhxfwi.ut.fpelsy9fk1eitums4ovpfpd.aqaqtd43x8zpzqamg2', 'ZxkBlJLzrXYD9wnYxWWuSEK6aLGwvr91EhxPZCTUH2yufwPTduyUBNESckrv', '2021-03-09 23:00:00', '2023-04-25 19:25:05', '127.0.0.1', '2023-04-25 21:25:05', 'connecte', NULL, 'VALIDE'),
@@ -2081,7 +2097,7 @@ INSERT INTO `tb_users_rich*` (`id`, `profil_id`, `service_id`, `categorie_person
 	(5, 5, 1, 1, 1, 0, 0, 'SORTIE 2', '', 'm.', '2020-06-06', '0708031746', NULL, 'ph1_1620901561048ph4_1615373851975135160607_10164592007005223_8140133135769055267_o.jpg', '', 'sortie2', '$2y$10$fzhxfwi.ut.fpelsy9fk1eitums4ovpfpd.aqaqtd43x8zpzqamg2E', 'i6gm3uc9fzpk30q2pjh6uoltnznaibu6ljjyh5hbuxxjc5bzrw7rl1nal1z7', '2021-03-09 23:00:00', '2021-07-26 15:12:12', '127.0.0.1', '2021-07-26 17:12:12', 'connecte', NULL, 'VALIDE');
 /*!40000 ALTER TABLE `tb_users_rich*` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. utilisateur
+-- Listage de la structure de la table echargement_db. utilisateur
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `utilisateur_id` int(11) NOT NULL AUTO_INCREMENT,
   `utilisateur_nom` varchar(50) DEFAULT NULL,
@@ -2093,13 +2109,13 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   PRIMARY KEY (`utilisateur_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Export de données de la table echargement_db.utilisateur : ~1 rows (environ)
+-- Listage des données de la table echargement_db.utilisateur : ~0 rows (environ)
 /*!40000 ALTER TABLE `utilisateur` DISABLE KEYS */;
 INSERT INTO `utilisateur` (`utilisateur_id`, `utilisateur_nom`, `utilisateur_prenoms`, `utilisateur_telephone`, `utilisateur_login`, `utilisateur_password`, `utilisateur_statut`) VALUES
 	(1, NULL, NULL, '0708031746', 'edgard', NULL, NULL);
 /*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
 
--- Export de la structure de la table echargement_db. vehicule
+-- Listage de la structure de la table echargement_db. vehicule
 CREATE TABLE IF NOT EXISTS `vehicule` (
   `entree_sortie_id` int(11) DEFAULT NULL,
   `poste_id` int(11) DEFAULT NULL,
@@ -2134,15 +2150,16 @@ CREATE TABLE IF NOT EXISTS `vehicule` (
   PRIMARY KEY (`vehicule_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Export de données de la table echargement_db.vehicule : 4 rows
+-- Listage des données de la table echargement_db.vehicule : 4 rows
 /*!40000 ALTER TABLE `vehicule` DISABLE KEYS */;
 INSERT INTO `vehicule` (`entree_sortie_id`, `poste_id`, `vehicule_id`, `vehicule_code`, `vehicule_marque`, `vehicule_numero_chassis`, `vehicule_numero_ldc`, `vehicule_immatriculation1`, `vehicule_immatriculation2`, `vehicule_numero_declaration`, `vehicule_nom_conducteur`, `vehicule_date_creation_entree1`, `vehicule_date_creation_entree2`, `vehicule_date_creation_sortie1`, `vehicule_date_creation_sortie2`, `vehicule_date_entree1`, `vehicule_heure_entree1`, `vehicule_date_entree2`, `vehicule_heure_entree2`, `vehicule_date_sortie1`, `vehicule_heure_sortie1`, `vehicule_date_sortie2`, `vehicule_heure_sortie2`, `vehicule_date_suppression`, `vehicule_user_entree1`, `vehicule_user_entree2`, `vehicule_user_sortie1`, `vehicule_user_sortie2`, `vehicule_statut`, `vehicule_statuts`) VALUES
 	(1, 1, 1, 'code 01', 'marque 01', 'chassis 01', 'ldc 01', 'imma 01', 'imma 02', 'decla 01', 'cond koffi', '2023-04-02 14:58:01', '2023-04-03 14:58:01', '2023-04-05 14:58:01', '2023-04-07 14:58:01', '2023-04-20 14:58:01', '2023-04-20 14:58:01', '2023-04-12 14:58:01', '2023-04-12 14:58:01', '2023-04-11 14:58:01', '2023-04-10 14:58:01', '2023-04-09 14:58:01', '2023-04-20 14:58:01', '2023-04-19 14:58:01', 'bernard', 'robert', 'vincent', 'guy', 'valide', 'entree1'),
 	(2, 2, 2, 'code 2', 'marque 2', 'chassis 2', 'ldc 2', 'imma 2', 'imma 3', 'decla 2', 'cond konate', '0000-00-00 00:00:00', '2023-04-25 21:55:14', '2023-04-06 22:00:00', '0000-00-00 00:00:00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'valide', 'entree2'),
-	(NULL, NULL, 3, NULL, 'MERCEDES', 'CHASSIS87', 'LDC23', '3432FRO1', '4532LL01', 'DECLA03', NULL, '2023-04-25 20:23:36', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', NULL, NULL, NULL, 'valide', ''),
-	(NULL, NULL, 4, NULL, 'MERCEDES', 'CHASSIS87', 'LDC23', '3432FRO1', '4532LL01', 'DECLA03', NULL, '2023-04-25 20:24:44', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', NULL, NULL, NULL, 'valide', '');
+	(NULL, NULL, 3, NULL, 'MERCEDES', 'CHASSIS87', 'LDC23', '3432FRO1', '4532LL01', 'DECLA03', NULL, '2023-04-25 20:23:36', '2023-05-01 23:07:07', '2023-05-01 23:56:57', '2023-05-01 23:52:27', NULL, NULL, '2023-05-01 00:00:00', NULL, '2023-04-03 00:00:00', NULL, '2023-04-05 00:00:00', NULL, NULL, '2', NULL, NULL, NULL, 'valide', 'entree1'),
+	(NULL, NULL, 4, NULL, 'MERCEDES', 'CHASSIS87', 'LDC23', '3432FRO1', '4532LL01', 'DECLA03', NULL, '2023-04-25 20:24:44', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', NULL, NULL, NULL, 'valide', 'entree1');
 /*!40000 ALTER TABLE `vehicule` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
