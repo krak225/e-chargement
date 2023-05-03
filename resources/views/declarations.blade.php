@@ -118,7 +118,6 @@
 					<th width=""></th>
 					<th width="">Nom</th>
 					<th width="">Catégorie</th>
-					<th width="">Prix</th>
 					<th width="">Date création</th>
 					<th width="">Action</th>
 				</tr> 
@@ -126,11 +125,10 @@
 			<tbody>
 			@foreach($declarations as $declaration)
 				<tr>
-					<td><a href="{{route('DetailsDeclaration',$declaration->declaration_id)}}"><i class="fa fa-cogs text-info" title="Afficher les détails"></i></a></td> 
+					<td><a href="{{route('details_declaration',$declaration->declaration_id)}}"><i class="fa fa-cogs text-info" title="Afficher les détails"></i></a></td> 
 					<td><span class="btnModifierDeclaration" data-declaration_id="{{$declaration->declaration_id}}" style="cursor: pointer;"><i class="fa fa-edit text-warning" title="Modifier"></i></span></td> 
 					<td>{{ $declaration->declaration_numero }}</td>
 					<td>{{ $declaration->declaration_numero }}</td>
-					<td style="text-align: right;">{{ number_format($declaration->declaration_date_creation, 0, '', ' ') }}</td>
 					<td>{{ Stdfn::dateFromDB($declaration->declaration_date_creation) }}</td>
 					<td><span class="btnSupprimerDeclaration" data-produit_id="{{$declaration->declaration_id}}" style="cursor: pointer;"><i class="fa fa-times text-danger" title="Supprimer cette declaration"></i></a></td> 
 				</tr>	

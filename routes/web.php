@@ -52,7 +52,8 @@ Route::post('upload_fichiers/{courrier_id}','ParametresController@UpdateFichiers
 //les routes pour gerer déclarations
 Route::get('declarations','ParametresController@declarations')->name('declarations');
 Route::post('declarations','ParametresController@SaveDeclaration')->name('SaveDeclaration');
-Route::get('declaration/{declarations_id}','ParametresController@DetailsDeclaration')->name('DetailsDeclaration');
+Route::post('declaration/{declaration_id}','ParametresController@SaveDeclarationMarchandise')->name('SaveDeclarationMarchandise');
+Route::get('declaration/{declaration_id}','ParametresController@details_declaration')->name('details_declaration');
 Route::post('supprimer_declaration','ParametresController@SupprimerDeclaration')->name('SupprimerDeclaration');
 
 Route::post('update_photo_declaration/{declaration_id}','ParametresController@UpdateDeclarationPhoto')->name('UpdateDeclarationPhoto');

@@ -1,23 +1,21 @@
-@extends('layouts.app')
-
-
-@section('content')
-@if(!empty($declaration))
+<?php $__env->startSection('content'); ?>
+<?php if(!empty($declaration)): ?>
 <ul class="breadcrumb no-border no-radius b-b b-light pull-in"> 
-	<li><a href="{{ route('home') }}"><i class="fa fa-home"></i> Accueil</a></li> 
-	<li><a href="{{ route('declarations') }}">Déclarations</a></li> 
-	<li class="active">Déclaration {{ $declaration->declaration_code }}</li> 
+	<li><a href="<?php echo e(route('home')); ?>"><i class="fa fa-home"></i> Accueil</a></li> 
+	<li><a href="<?php echo e(route('declarations')); ?>">Déclarations</a></li> 
+	<li class="active">Déclaration <?php echo e($declaration->declaration_code); ?></li> 
 </ul> 
 
 <div class="m-b-md"> 
-	<h3 class="m-b-none">Déclaration {{ $declaration->declaration_code }}</h3>
+	<h3 class="m-b-none">Déclaration <?php echo e($declaration->declaration_code); ?></h3>
 </div>
 
-@if(Session::has('warning'))
+<?php if(Session::has('warning')): ?>
 	<div class="alert alert-warning">
-	  {{Session::get('warning')}}
+	  <?php echo e(Session::get('warning')); ?>
+
 	</div>
-@endif
+<?php endif; ?>
 
 <style type="text/css">
 <!--
@@ -76,35 +74,35 @@ ul.no_liste_item li {
 					</header---> 
 					<div class="list-group no-radius alt"> 
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $declaration->declaration_numero }}</span> 
+							<span class="badge bg-light"><?php echo e($declaration->declaration_numero); ?></span> 
 							<i class="fa fa- icon-muted"></i> Numéro 
 						</span>		
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $declaration->declarant->declarant_nom }}</span> 
+							<span class="badge bg-light"><?php echo e($declaration->declarant->declarant_nom); ?></span> 
 							<i class="fa fa- icon-muted"></i> Déclarant
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $declaration->expediteur->expediteur_nom }}</span> 
+							<span class="badge bg-light"><?php echo e($declaration->expediteur->expediteur_nom); ?></span> 
 							<i class="fa fa- icon-muted"></i> Expéditeur 
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $declaration->bureau_sortie->bureau_sortie_libelle }}</span> 
+							<span class="badge bg-light"><?php echo e($declaration->bureau_sortie->bureau_sortie_libelle); ?></span> 
 							<i class="fa fa- icon-muted"></i> Bureau de sortie 
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $declaration->regime->regime_libelle }}</span> 
+							<span class="badge bg-light"><?php echo e($declaration->regime->regime_libelle); ?></span> 
 							<i class="fa fa- icon-muted"></i> Régime 
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $declaration->moyen_transport->moyen_transport_libelle }}</span> 
+							<span class="badge bg-light"><?php echo e($declaration->moyen_transport->moyen_transport_libelle); ?></span> 
 							<i class="fa fa- icon-muted"></i> Moyen de transport 
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $declaration->destinataire->destinataire_nom }}</span> 
+							<span class="badge bg-light"><?php echo e($declaration->destinataire->destinataire_nom); ?></span> 
 							<i class="fa fa- icon-muted"></i> Destinataire 
 						</span>	
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $declaration->pays->pays_nom }}</span> 
+							<span class="badge bg-light"><?php echo e($declaration->pays->pays_nom); ?></span> 
 							<i class="fa fa- icon-muted"></i> Pays 
 						</span>	
 					</div> 
@@ -127,27 +125,27 @@ ul.no_liste_item li {
 					<div class="list-group no-radius alt"> 
 						
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ Stdfn::dateFromDB($declaration->declaration_date) }}</span> 
+							<span class="badge bg-light"><?php echo e(Stdfn::dateFromDB($declaration->declaration_date)); ?></span> 
 							<i class="fa fa- icon-muted"></i> Date déclaration
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ Stdfn::dateFromDB($declaration->declaration_date_fin) }}</span> 
+							<span class="badge bg-light"><?php echo e(Stdfn::dateFromDB($declaration->declaration_date_fin)); ?></span> 
 							<i class="fa fa- icon-muted"></i> Date fin
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ Stdfn::dateFromDB($declaration->declaration_date_prise_compte) }}</span> 
+							<span class="badge bg-light"><?php echo e(Stdfn::dateFromDB($declaration->declaration_date_prise_compte)); ?></span> 
 							<i class="fa fa- icon-muted"></i> Date prise en compte
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($declaration->declaration_date_creation) }}</span> 
+							<span class="badge bg-light"><?php echo e(Stdfn::dateTimeFromDB($declaration->declaration_date_creation)); ?></span> 
 							<i class="fa fa- icon-muted"></i> Date système
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $declaration->user->nom }} {{ $declaration->user->prenoms }}</span> 
+							<span class="badge bg-light"><?php echo e($declaration->user->nom); ?> <?php echo e($declaration->user->prenoms); ?></span> 
 							<i class="fa fa- icon-muted"></i> Enregistré par
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $declaration->declaration_statut }}</span> 
+							<span class="badge bg-light"><?php echo e($declaration->declaration_statut); ?></span> 
 							<i class="fa fa- icon-muted"></i> Statut
 						</span>
 						
@@ -164,13 +162,13 @@ ul.no_liste_item li {
 
 	<div class="panel panel-default wizard0"> 
 	
-		@if($declaration->declaration_statut == "BROUILLON")
+		<?php if($declaration->declaration_statut == "BROUILLON"): ?>
 		<div class="wizard-steps clearfix"> 
 			<ul class="steps"> 
 				<li data-target="#step2" class="active"><span class="badge"></span>Déclaration des marchandises soumises à la RCP et/ou à la RRR <!--Ajout des matériels et supports de stockage importés--> </li>
 			</ul> 
 		</div> 
-		@endif
+		<?php endif; ?>
 		
 		<div class="step-content clearfix"> 
 		<br style="clear:both;"/>
@@ -178,89 +176,90 @@ ul.no_liste_item li {
 				<div class="line line-lg pull-in"></div>
 			<div class="">
 				
-				@if($declaration->declaration_statut == "valide")
+				<?php if($declaration->declaration_statut == "valide"): ?>
 				<div class="col-md-12 row" style="padding:0px;margin:0px;">
 				
-					<form enctype="multipart/form-data" method="post" class="form-horizontal" action="{{route('SaveDeclarationMarchandise', $declaration->declaration_id)}}">
+					<form enctype="multipart/form-data" method="post" class="form-horizontal" action="<?php echo e(route('SaveDeclarationMarchandise', $declaration->declaration_id)); ?>">
 						
-						{!! csrf_field() !!}
+						<?php echo csrf_field(); ?>
+
 						
-						<input type="hidden" name="declaration_id" value="{{$declaration->declaration_id}}"/>
+						<input type="hidden" name="declaration_id" value="<?php echo e($declaration->declaration_id); ?>"/>
 						
-						<div class="col-md-4 form-group{{ $errors->has('marchandise_id') ? ' has-error' : '' }}">
+						<div class="col-md-4 form-group<?php echo e($errors->has('marchandise_id') ? ' has-error' : ''); ?>">
 							<label for="marchandise_id" class="col-md-12">Marchandises <span class="text text-danger">*</span></label>
 
 							<div class="col-md-12">
 								<select id="marchandise_id" class="form-control" name="marchandise_id" required>
 									<option>Saisir le code pour filtrer</option>
-									@foreach($marchandises as $marchandise)
-									<option value="{{ $marchandise->marchandise_id }}">{{ $marchandise->marchandise_code_valorisation }} - {{ $marchandise->marchandise_libelle }}</option>
-									@endforeach
+									<?php $__currentLoopData = $marchandises; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $marchandise): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+									<option value="<?php echo e($marchandise->marchandise_id); ?>"><?php echo e($marchandise->marchandise_code_valorisation); ?> - <?php echo e($marchandise->marchandise_libelle); ?></option>
+									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 								</select>
 
-								@if ($errors->has('marchandise_id'))
+								<?php if($errors->has('marchandise_id')): ?>
 									<span class="help-block">
-										<strong>{{ $errors->first('marchandise_id') }}</strong>
+										<strong><?php echo e($errors->first('marchandise_id')); ?></strong>
 									</span>
-								@endif
+								<?php endif; ?>
 							</div>
 						</div>
 
-						<div class="col-md-3 form-group{{ $errors->has('conteneur') ? ' has-error' : '' }}">
+						<div class="col-md-3 form-group<?php echo e($errors->has('conteneur') ? ' has-error' : ''); ?>">
 							<label for="conteneur_id" class="col-md-12">Conteneur <span class="text text-danger">*</span></label>
 
 							<div class="col-md-12">
 								<select id="conteneur_id" class="form-control" name="conteneur_id" required>
 									<option>Saisir le code pour filtrer</option>
-									@foreach($conteneurs as $conteneur)
-									<option value="{{ $conteneur->conteneur_id }}">{{ $conteneur->conteneur_numero }}</option>
-									@endforeach
+									<?php $__currentLoopData = $conteneurs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $conteneur): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+									<option value="<?php echo e($conteneur->conteneur_id); ?>"><?php echo e($conteneur->conteneur_numero); ?></option>
+									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 								</select>
 
-								@if ($errors->has('conteneur_id'))
+								<?php if($errors->has('conteneur_id')): ?>
 									<span class="help-block">
-										<strong>{{ $errors->first('conteneur_id') }}</strong>
+										<strong><?php echo e($errors->first('conteneur_id')); ?></strong>
 									</span>
-								@endif
+								<?php endif; ?>
 							</div>
 						</div>
 
-						<div class="col-md-2 form-group{{ $errors->has('poids_net') ? ' has-error' : '' }}">
+						<div class="col-md-2 form-group<?php echo e($errors->has('poids_net') ? ' has-error' : ''); ?>">
 							<label for="poids_net" class="col-md-12" title="Poids">Poids net<span class="text text-danger"></span></label>
 
 							<div class="col-md-12">
 								<input type="number" id="poids_net" name="poids_net" class="form-control" placeholder="" >
-								@if($errors->has('poids_net'))
+								<?php if($errors->has('poids_net')): ?>
 								<span class="help-block">
-									<strong>{{ $errors->first('poids_net') }}</strong>
+									<strong><?php echo e($errors->first('poids_net')); ?></strong>
 								</span>
-								@endif
+								<?php endif; ?>
 							</div>
 						</div>
 						
-						<div class="col-md-2 form-group{{ $errors->has('quantite') ? ' has-error' : '' }}">
+						<div class="col-md-2 form-group<?php echo e($errors->has('quantite') ? ' has-error' : ''); ?>">
 							<label for="quantite" class="col-md-12">Quantité <span class="text text-danger">*</span></label>
 
 							<div class="col-md-12">
 								<input type="number" id="quantite" name="quantite" class="form-control" placeholder="" required />
-								@if($errors->has('quantite'))
+								<?php if($errors->has('quantite')): ?>
 								<span class="help-block">
-									<strong>{{ $errors->first('quantite') }}</strong>
+									<strong><?php echo e($errors->first('quantite')); ?></strong>
 								</span>
-								@endif
+								<?php endif; ?>
 							</div>
 						</div>
 						
-						<div class="col-md-2 form-group{{ $errors->has('valeur_douane') ? ' has-error' : '' }}">
+						<div class="col-md-2 form-group<?php echo e($errors->has('valeur_douane') ? ' has-error' : ''); ?>">
 							<label for="valeur_douane" class="col-md-12">Valeur CAF <span class="text text-danger">*</span></label>
 
 							<div class="col-md-12">
 								<input autocomplete="off" type="text" id="valeur_douane" name="valeur_douane" class="form-control wari" placeholder="" required>
-								@if($errors->has('valeur_douane'))
+								<?php if($errors->has('valeur_douane')): ?>
 								<span class="help-block">
-									<strong>{{ $errors->first('valeur_douane') }}</strong>
+									<strong><?php echo e($errors->first('valeur_douane')); ?></strong>
 								</span>
-								@endif
+								<?php endif; ?>
 							</div>
 						</div>
 
@@ -275,7 +274,7 @@ ul.no_liste_item li {
 					</form>
 					
 				</div>
-				@endif
+				<?php endif; ?>
 				
 				
 				<br style="clear:both;"/>
@@ -296,24 +295,24 @@ ul.no_liste_item li {
 										<th width="">Qté</th>
 										<th width="">Poids</th>
 										<th width="">V. CAF</th>
-										@if($declaration->declaration_statut == "BROUILLON")
+										<?php if($declaration->declaration_statut == "BROUILLON"): ?>
 										<th width=""></th>
-										@endif
+										<?php endif; ?>
 									</tr> 
 								</thead> 
 								<tbody>
-								@foreach($marchandises_declares as $declaration_marchandise)
+								<?php $__currentLoopData = $marchandises_declares; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $declaration_marchandise): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 									<tr>
-										<td>{{ $declaration_marchandise->marchandise->marchandise_code_valorisation }}</td>
-										<td>{{ $declaration_marchandise->marchandise->marchandise_libelle }}</td>
-										<td>{{ number_format($declaration_marchandise->detail_declaration_quantite, 0, '', ' ') }}</td>
-										<td>{{ number_format($declaration_marchandise->detail_declaration_poids_net, 0, '', ' ') }}</t>
-										<td>{{ number_format($declaration_marchandise->detail_declaration_valeur, 0, '', ' ') }}</td>
-										@if($declaration->detail_declaration_statut == "BROUILLON")
-										<td><span class="btnSupprimerAction" data-detail_declaration_id="{{$declaration_marchandise->detail_declaration_id}}" style="cursor: pointer;"><i class="fa fa-times text-danger" title="Supprimer"></i></span></td> 
-										@endif
+										<td><?php echo e($declaration_marchandise->marchandise->marchandise_code_valorisation); ?></td>
+										<td><?php echo e($declaration_marchandise->marchandise->marchandise_libelle); ?></td>
+										<td><?php echo e(number_format($declaration_marchandise->detail_declaration_quantite, 0, '', ' ')); ?></td>
+										<td><?php echo e(number_format($declaration_marchandise->detail_declaration_poids_net, 0, '', ' ')); ?></t>
+										<td><?php echo e(number_format($declaration_marchandise->detail_declaration_valeur, 0, '', ' ')); ?></td>
+										<?php if($declaration->detail_declaration_statut == "BROUILLON"): ?>
+										<td><span class="btnSupprimerAction" data-detail_declaration_id="<?php echo e($declaration_marchandise->detail_declaration_id); ?>" style="cursor: pointer;"><i class="fa fa-times text-danger" title="Supprimer"></i></span></td> 
+										<?php endif; ?>
 									</tr>	
-								@endforeach
+								<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 								</tbody> 
 							</table> 
 						</div> 
@@ -321,7 +320,7 @@ ul.no_liste_item li {
 					
 					<!--div class="col-md-12" style="margin-bottom:50px;padding:15px;background:rgb(192,227,245);border-bottom:1px solid #272727;border-top:1px solid #272727;">
 						<div class="col-md-4 pull-right" style="text-align:right;">
-							<strong>Montant Total : {{ number_format($declaration->declaration_montant_redevance_rcp, 0, '', ' ') }} FCFA</strong> 
+							<strong>Montant Total : <?php echo e(number_format($declaration->declaration_montant_redevance_rcp, 0, '', ' ')); ?> FCFA</strong> 
 						</div>
 					</div-->
 					
@@ -330,28 +329,28 @@ ul.no_liste_item li {
 				<br style="clear:both;"/>
 			</div>
 			
-			@if($declaration->declaration_statut_paiement == "NON PAYE")
+			<?php if($declaration->declaration_statut_paiement == "NON PAYE"): ?>
 			<div class="line line-lg pull-in"></div>
 			
 			<div class="col-md-12"> 
 				<div class="col-md-4 text-center" style="margin-top:12px;"> 
-					<b>MONTANT A PAYER</b> <span class="label label-light" style="background: orange;color:white;font-size: 15px;margin-left:30px;">{{ number_format($declaration->declaration_facture_solde, 0, '', ' ')}} FCFA</span>
+					<b>MONTANT A PAYER</b> <span class="label label-light" style="background: orange;color:white;font-size: 15px;margin-left:30px;"><?php echo e(number_format($declaration->declaration_facture_solde, 0, '', ' ')); ?> FCFA</span>
 				</div> 
 				<div class="col-md-4 text-center" style="margin-top:10px;"> 
-					@if($declaration->declaration_facture_solde > 0 && Auth::user()->profil_id != 1)
-					<a class="btn btn-success btn-sm" href="{{route('paiement_enligne', $declaration->declaration_id)}}">PAYER EN LIGNE</a>
-					@endif
+					<?php if($declaration->declaration_facture_solde > 0 && Auth::user()->profil_id != 1): ?>
+					<a class="btn btn-success btn-sm" href="<?php echo e(route('paiement_enligne', $declaration->declaration_id)); ?>">PAYER EN LIGNE</a>
+					<?php endif; ?>
 				</div>
 				<div class="col-md-4 text-center" style="margin-top:10px;"> 			
-					@if($declaration->declaration_facture_solde > 0 && Auth::user()->profil_id == 1)
-						<a class="btn btn-info btn-sm" href="{{route('paiement_classique', $declaration->declaration_id)}}">PAYER EN ESPECE, CHEQUE OU VIREMENT</a>
-					@else
-						<a class="btn btn-info btn-sm" href="{{route('paiement_info_burida', $declaration->declaration_id)}}">PAYER EN ESPECE, CHEQUE OU VIREMENT AU BURIDA</a>
-					@endif
+					<?php if($declaration->declaration_facture_solde > 0 && Auth::user()->profil_id == 1): ?>
+						<a class="btn btn-info btn-sm" href="<?php echo e(route('paiement_classique', $declaration->declaration_id)); ?>">PAYER EN ESPECE, CHEQUE OU VIREMENT</a>
+					<?php else: ?>
+						<a class="btn btn-info btn-sm" href="<?php echo e(route('paiement_info_burida', $declaration->declaration_id)); ?>">PAYER EN ESPECE, CHEQUE OU VIREMENT AU BURIDA</a>
+					<?php endif; ?>
 				</div>
 			</div>
 			
-			@endif
+			<?php endif; ?>
 				
 		</div>
 		
@@ -362,11 +361,11 @@ ul.no_liste_item li {
 	</div>
 	
 </div>
-@else
+<?php else: ?>
 
 <ul class="breadcrumb no-border no-radius b-b b-light pull-in"> 
-	<li><a href="{{ route('home') }}"><i class="fa fa-home"></i> Accueil</a></li> 
-	<li><a href="{{ route('declarations') }}">Declarations</a></li> 
+	<li><a href="<?php echo e(route('home')); ?>"><i class="fa fa-home"></i> Accueil</a></li> 
+	<li><a href="<?php echo e(route('declarations')); ?>">Declarations</a></li> 
 </ul> 
 
 <div class="m-b-md"> 
@@ -383,6 +382,7 @@ ul.no_liste_item li {
 	
 </div>	
 
-@endif
+<?php endif; ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

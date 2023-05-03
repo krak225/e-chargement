@@ -135,7 +135,7 @@ ul.no_liste_item li {
 						</span>
 						
 						<span class="list-group-item"> 
-							<span class="badge bg-light"><?php echo e($vehicule->vehicule_user_entree1); ?></span> 
+							<span class="badge bg-light"><?php echo e($vehicule->user_entree1->nom); ?> <?php echo e($vehicule->user_entree1->prenoms); ?></span> 
 							<i class="fa fa- icon-muted"></i> Enregistré par
 						</span>
 						

@@ -9,19 +9,23 @@ use Auth;
 use App\Commune;
 use App\Commande;
 use App\Categorie;
-use App\declaration; 
-use App\expediteur;
-use App\destinataire;
-use App\chargement;
-use App\empotage;  
-use App\declarant;
-use App\agent_douane;
-use App\vehicule;
-use App\entree_sortie;
-use App\poste;
+use App\declaration;
+use App\DeclarationMarchandise; 
+use App\Declarant;
+use App\Conteneur;
+use App\Marchandise;
+use App\Expediteur;
+use App\Destinataire;
+use App\Chargement;
+use App\Empotage;  
+use App\Agent_douane;
+use App\Vehicule;
+use App\Entree_sortie;
+use App\Poste;
 use App\Produit;
 use App\ProduitFichier;
 use App\FraisLivraison;
+use App\BureauSortie;
 use App\Course;
 use Stdfn;
 use DB;
@@ -41,22 +45,17 @@ class ParametresController extends Controller
 	//:liste des declarations
     public function declarations()
     {
-    	$declarations = Declaration::get();
+    	$declarations = Declaration::leftjoin('declarant','declarant.declarant_id','declaration.declarant_id')->get();
 
-    	$declarations = DB::select('select declaration.*, declaration.declaration_numero as Numero 
-    		from declaration 
-    		WHERE declaration.declaration_statut="VALIDE"');
-			
-    	//dd($declarations);								
         return view('declarations',['declarations'=>$declarations]);
-		//return view('details_produit', ['produit'=>$produit,'piecesjointes'=>$piecesjointes]);
     }
-//ajout de declaration
+
+	//ajout de declaration
     public function SaveDeclaration(Request $request)
     {
 		
-
 		$declaration = new Declaration();
+		$declaration->user_id					= Auth::user()->id;
 		$declaration->declarant_id				= Auth::user()->id;//$request->declarant_id;
 		$declaration->expediteur_id				= $request->expediteur_id;
 		$declaration->bureau_sortie_id			= $request->bureau_sortie_id;
@@ -71,18 +70,6 @@ class ParametresController extends Controller
 		$declaration->declaration_numero			= $request->declaration_numero;
 		$declaration->declaration_user			= $request->declaration_user;
 			
-
-		/*
-		$fichier 		= $request->file('declaration_photo');
-        $fileName	 	= 'declaration_'.''.time().'_'.Auth::user()->id.'_'.$fichier->getClientOriginalName();
-        $original_name 	= $fichier->getClientOriginalName();
-		
-		$mimetype	= $fichier->getMimeType();
-		
-        $fichier->move(public_path('images/declarations'),$fileName);
-
-
-		$declaration->declaration_photo = $fileName;*/
 		$declaration->save();
 		
 		$declaration_id = $declaration->declaration_id;
@@ -92,25 +79,62 @@ class ParametresController extends Controller
 		
 	}
 	
-	//détails d'un declaration
-    public function DetailsDeclaration(Request $request)
+	public function SaveDeclarationMarchandise(Request $request)
     {
 		
-		$declaration_id = $request->declaration_id;
+		$declaration_id = trim($request->declaration_id);
+		$marchandise_id 	= trim($request->marchandise_id);
+		$conteneur_id 	= trim($request->conteneur_id);
 		
-		$declaration 	= Declaration::join('regime','regime.regime_id','declaration.regime_id')
+		$dm 										= new DeclarationMarchandise();
+		$dm->user_id								= Auth::user()->id;
+		$dm->declaration_id							= $declaration_id;
+		$dm->marchandise_id							= $marchandise_id;
+		$dm->conteneur_id							= $conteneur_id;
+		
+		$declaration = Declaration::find($dm->declaration_id);
+		$marchandise 	 = Marchandise::find($dm->marchandise_id);
+		
+		if(!empty($declaration) && !empty($marchandise)){
+			
+			$dm->detail_declaration_valeur 					= $request->valeur_douane;
+			$dm->detail_declaration_quantite 				= $request->quantite;
+			$dm->detail_declaration_poids_net 				= $request->poids_net;
+			
+			$dm->detail_declaration_date_creation 			= gmdate('Y-m-d H:i:s');
+			
+			$dm->save();
+			
+			return back()->with('message','MARCHANDISE AJOUTÉE A LA DÉCLARATION AVEC SUCCÈS !');
+			
+		}else{
+			
+			return back()->with('warning','VEUILLEZ RENSEIGNER CORRECTEMENT LE FORMULAIRE SVP !');
+			
+		}
+		
+    }
+	
+	
+	//détails d'un declaration
+    public function details_declaration($declaration_id)
+    {
+		
+		$declaration 	= Declaration::Leftjoin('regime','regime.regime_id','declaration.regime_id')
 								->where(['declaration_statut'=>'VALIDE','declaration_id'=>$declaration_id])
 								->first();
 
 		if(!empty($declaration)){
 
-			$piecesjointes = DeclarationFichier::where(['declaration_id'=>$declaration_id])->get();
+			$marchandises_declares = DeclarationMarchandise::where(['declaration_id'=>$declaration_id])->get();
+			$marchandises = Marchandise::get();
+			$conteneurs = Conteneur::get();
 				
-			return view('details_declaration', ['declaration'=>$declaration,'piecesjointes'=>$piecesjointes]);
+			return view('details_declaration', ['declaration'=>$declaration,'marchandises'=>$marchandises, 'conteneurs'=>$conteneurs, 'marchandises_declares'=>$marchandises_declares]);
 		
 		}else{
 			
-			return Redirect('declarations')->with('warning',"LE PRODUIT QUE VOUS CHERCHEZ N'A PAS ÉTÉ TROUVÉ");
+			return Redirect('declarations')->with('warning',"LA DECLARATION QUE VOUS CHERCHEZ N'A PAS ÉTÉ TROUVÉ");
 		}
 		
 	}
@@ -1047,7 +1071,7 @@ public function UpdateFichiersVehicule($vehicule_id, Request $request){
 public function entree_sorties()
 {
 	
-$entree_sorties = Entree_sortie::where(['entree_sortie_statut'=>'VALIDE'])->get();
+	$entree_sorties = Entree_sortie::where(['entree_sortie_statut'=>'VALIDE'])->get();
 						
 	return view('entree_sorties', ['entree_sorties'=>$entree_sorties]);
 	

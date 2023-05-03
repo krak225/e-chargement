@@ -119,7 +119,6 @@
 					<th width=""></th>
 					<th width="">Nom</th>
 					<th width="">Catégorie</th>
-					<th width="">Prix</th>
 					<th width="">Date création</th>
 					<th width="">Action</th>
 				</tr> 
@@ -127,11 +126,10 @@
 			<tbody>
 			<?php $__currentLoopData = $declarations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $declaration): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 				<tr>
-					<td><a href="<?php echo e(route('DetailsDeclaration',$declaration->declaration_id)); ?>"><i class="fa fa-cogs text-info" title="Afficher les détails"></i></a></td> 
+					<td><a href="<?php echo e(route('details_declaration',$declaration->declaration_id)); ?>"><i class="fa fa-cogs text-info" title="Afficher les détails"></i></a></td> 
 					<td><span class="btnModifierDeclaration" data-declaration_id="<?php echo e($declaration->declaration_id); ?>" style="cursor: pointer;"><i class="fa fa-edit text-warning" title="Modifier"></i></span></td> 
 					<td><?php echo e($declaration->declaration_numero); ?></td>
 					<td><?php echo e($declaration->declaration_numero); ?></td>
-					<td style="text-align: right;"><?php echo e(number_format($declaration->declaration_date_creation, 0, '', ' ')); ?></td>
 					<td><?php echo e(Stdfn::dateFromDB($declaration->declaration_date_creation)); ?></td>
 					<td><span class="btnSupprimerDeclaration" data-produit_id="<?php echo e($declaration->declaration_id); ?>" style="cursor: pointer;"><i class="fa fa-times text-danger" title="Supprimer cette declaration"></i></a></td> 
 				</tr>	
