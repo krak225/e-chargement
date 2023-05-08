@@ -66,13 +66,17 @@ class ParametresController extends Controller
 	//ajout de declaration
     public function SaveDeclaration(Request $request)
     {
+		$regime_id = $request->regime_id;
+		$regime = Regime::where(['regime_id'=>$regime_id])->first();
+		$regime_nombre_jours 	 = ($regime)? $regime->regime_nombre_jours : 10;
 		
 		$declaration = new Declaration();
 		$declaration->user_id					= Auth::user()->id;
 		$declaration->declarant_id				= Auth::user()->id;//$request->declarant_id;
 		$declaration->expediteur_id				= $request->expediteur_id;
 		$declaration->bureau_sortie_id			= $request->bureau_sortie_id;
-		$declaration->regime_id					= $request->regime_id;
+		$declaration->regime_id					= $regime_id;
+		$declaration->declaration_nombre_jours	= $regime_nombre_jours;
 		$declaration->moyen_transport_id		= $request->moyen_transport_id;
 		$declaration->destinataire_id			= $request->destinataire_id;
 		$declaration->pays_id					= $request->pays_id;
@@ -938,7 +942,7 @@ public function vehicules_sous_penalite_poste1()
 
 	$parametre_duree = Parametre::where(['parametre_statut'=>'VALIDE','parametre_code'=>'DUREE_STA'])->first();
 	$duree_limite 	 = ($parametre_duree)? $parametre_duree->parametre_valeur : 10;
-	$duree_limite = 1;
+	//$duree_limite = 1;
 	$where_condition = ' vehicule_statut="VALIDE" AND DATEDIFF(DATE(vehicule_date_sortie1), DATE(vehicule_date_entree1) ) > '. intval($duree_limite);
 
 	//die($where_condition);//Afficher la requete pour voir
@@ -957,7 +961,7 @@ public function vehicules_sous_penalite_poste2()
 
 	$parametre_duree = Parametre::where(['parametre_statut'=>'VALIDE','parametre_code'=>'DUREE_STA'])->first();
 	$duree_limite 	 = ($parametre_duree)? $parametre_duree->parametre_valeur : 10;
-	$duree_limite = 1;
+	//$duree_limite = 1;
 	$where_condition = ' vehicule_statut="VALIDE" AND DATEDIFF(DATE(vehicule_date_sortie2), DATE(vehicule_date_entree2) ) > '. intval($duree_limite);
 
 	//die($where_condition);//Afficher la requete pour voir
@@ -1057,6 +1061,7 @@ public function SaveVehicule(Request $request)
 	return back()->with('message','OPÉRATION EFFECTUÉE AVEC SUCCÈS !');
 	
 }
+
 
 //détails d'un vehicule
 public function DetailsVehicule(Request $request)
