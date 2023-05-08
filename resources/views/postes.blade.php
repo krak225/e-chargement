@@ -60,39 +60,15 @@
 						</div>
 						
 						<div class="col-md-5">
-							<span> Description<span class="text text-danger"></span></span>
-							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="poste_description" value="{{ old('poste_description') }}">
 						</div>
-						
-						<div class="col-md-2">
-							<span> Prix<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="poste_prix" required> 
-						</div>
-
-					</div>
-					
-					<div class="col-md-12 row" style="margin-top:10px;">	
-						
-						<div class="col-md-5">
-							<span> Photo<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="file" class="form-control" name="poste_photo" required>
-							
-						</div>
-						
-						
-						
-						<!--div class="col-md-2">
-							<span> Stock<span class="text text-danger"></span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="poste_stock" value="{{ old('poste_stock') }}" >
-														
-						</div-->
 						
 						<div class="col-md-2">
 							<span>&nbsp; <span class="text text-danger"></span></span>
 							<button type="submit" class="btn btn-success btn-sm rounded">ENREGISTRER</button> 
 						</div>
-						
+
 					</div>
+					
 					
 				</div>
 

@@ -2,7 +2,7 @@
 
 <ul class="breadcrumb no-border no-radius b-b b-light pull-in"> 
 	<li><a href="<?php echo e(route('home')); ?>"><i class="fa fa-home"></i> Accueil</a></li>
-	<li class="active">Vehicules</li> 
+	<li class="active">Vehicules_sorties_poste1</li> 
 </ul> 
 
 
@@ -31,10 +31,10 @@
 <?php endif; ?>
 
 <div class="m-b-md"> 
-	<h3 class="m-b-none">Gestion des véhicules</h3> 
+	<h3 class="m-b-none">Gestion des véhicules sortis poste 1</h3> 
 </div>
 
-<?php if(Auth::user()->profil_id == 2 || $option_afficher_formulaire == 'new'): ?>
+
 <div class="panel panel-default"> 
 
 	<div class="wizard-steps clearfix" id="form-wizard"> 
@@ -118,43 +118,38 @@
 	
 	
 </div>
-<?php endif; ?>
+
 
 <section class="panel panel-default"> 
-	<header class="panel-heading"> Liste des véhicules
-		<div class="actions pull-right" style="padding:0px;"> 
-			<a class="btn btn-sm btn-info" href="<?php echo e(route('vehicules','new')); ?>" style="padding:2px 10px;"><i class="fa fa-plus"></i> Nouveau véhicule</a>
-		</div>
+	<header class="panel-heading"> Liste des vehicules_sorties_poste1
+		<!--div class="actions pull-right" style="padding:0px;"> 
+			<a class="btn btn-sm btn-info" href="<?php echo e(route('vehicules_sorties_poste1')); ?>" style="padding:2px 10px;"><i class="fa fa-plus"></i> Nouveau</a>
+		</div-->
 	</header> 
 	
 	<div class="table-responsive"> 
 		<table id="table_courriers" class="table table-striped m-b-none datatable "> 
 			<thead> 
 				<tr>
-					<th style="display:none;"></th>
-					<th colspan="" width="">Action</th>
 					<th width="">Marque</th>
 					<th width="">N° chassis</th>
 					<th width="">Immat 1</th>
+					<th width="">Immat 2</th>
 					<th width="">N° déclaration</th>
-					<th width="">Statut</th>
+					<th colspan="" width="">Action</th>
 				</tr> 
 			</thead> 
 			<tbody>
-			<?php $__currentLoopData = $vehicules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+			<?php $__currentLoopData = $vehicules_sorties_poste1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 				<tr>
-					<td style="display:none;"><?php echo e($vehicule->vehicule_id); ?></a>
-					<td><a href="<?php echo e(route('DetailsVehicule',$vehicule->vehicule_id)); ?>"><i class="fa fa-cogs text-info" title="Afficher les détails"></i></a>&nbsp;&nbsp;
-					<?php if(Auth::user()->profil_id != 1): ?>
-					<span class="btnModifierVehicule" data-vehicule_id="<?php echo e($vehicule->vehicule_id); ?>" style="cursor: pointer;"><i class="fa fa-edit text-warning" title="Modifier"></i></span>&nbsp;&nbsp;
-					<span class="btnSupprimerVehicule" data-vehicule_id="<?php echo e($vehicule->vehicule_id); ?>" style="cursor: pointer;"><i class="fa fa-times text-danger" title="Supprimer ce vehicule"></i></a> 
-					<?php endif; ?>
-					</td>
 					<td><?php echo e($vehicule->vehicule_marque); ?></td>
 					<td><?php echo e($vehicule->vehicule_numero_chassis); ?></td>
 					<td><?php echo e($vehicule->vehicule_immatriculation1); ?></td>
+					<td><?php echo e($vehicule->vehicule_immatriculation2); ?></td>
 					<td><?php echo e($vehicule->vehicule_numero_declaration); ?></td>
-					<td><?php echo e($vehicule->vehicule_statuts); ?></td>
+					<td><a href="<?php echo e(route('DetailsVehicule',$vehicule->vehicule_id)); ?>"><i class="fa fa-cogs text-info" title="Afficher les détails"></i></a>&nbsp;&nbsp;
+					<span class="btnModifierVehicule" data-vehicule_id="<?php echo e($vehicule->vehicule_id); ?>" style="cursor: pointer;"><i class="fa fa-edit text-warning" title="Modifier"></i></span>&nbsp;&nbsp;
+					<span class="btnSupprimerVehicule" data-vehicule_id="<?php echo e($vehicule->vehicule_id); ?>" style="cursor: pointer;"><i class="fa fa-times text-danger" title="Supprimer ce vehicule"></i></a></td> 
 				</tr>	
 			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			</tbody> 

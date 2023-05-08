@@ -54,46 +54,69 @@
 					
 					<div class="col-md-12 row">
 						
-						<div class="col-md-5">
-							<span> Nom du empotage <span class="text text-danger">*</span></span>
+						<div class="col-md-3">
+							<span> N° empotage <span class="text text-danger">*</span></span>
 							<input placeholder="" type="text" class="form-control" name="empotage_nom"  value="{{ old('empotage_nom') }}" required>
 						</div>
 						
-						<div class="col-md-5">
-							<span> Description<span class="text text-danger"></span></span>
-							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="empotage_description" value="{{ old('empotage_description') }}">
+						<div class="col-md-3">
+							<span> Date empotage <span class="text text-danger">*</span></span>
+							<input placeholder="" type="date" class="form-control" name="declaration_date_fin"  value="{{ old('declaration_date_fin') }}" required>
 						</div>
 						
-						<div class="col-md-2">
-							<span> Prix<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="empotage_prix" required> 
+						<div class="col-md-3">
+							<span> N° BL/BM <span class="text text-danger">*</span></span>
+							<input placeholder="" type="text" class="form-control" name="empotage_nom"  value="{{ old('empotage_nom') }}" required>
+						</div>
+
+						<div class="col-md-3">
+							<span> Pays destination <span class="text text-danger">*</span></span>
+							<input placeholder="" type="text" class="form-control" name="empotage_nom"  value="{{ old('empotage_nom') }}" required>
 						</div>
 
 					</div>
 					
 					<div class="col-md-12 row" style="margin-top:10px;">	
 						
-						<div class="col-md-5">
-							<span> Photo<span class="text text-danger">*</span></span>
+						<div class="col-md-3">
+							<span> Fichier<span class="text text-danger">*</span></span>
 							<input style="padding-top:0px;" placeholder="" type="file" class="form-control" name="empotage_photo" required>
 							
 						</div>
+
+						<div class="col-md-3">
+							<span> Date dépôt <span class="text text-danger">*</span></span>
+							<input placeholder="" type="date" class="form-control" name="declaration_date_fin"  value="{{ old('declaration_date_fin') }}" required>
+						</div>
+					
+						<div class="col-md-3">
+							<span> Déclarant <span class="text text-danger">*</span></span>
+							<input placeholder="" type="text" class="form-control" name="empotage_nom"  value="{{ old('empotage_nom') }}" required>
+						</div>
 						
+						<div class="col-md-3">
+						</div>
 						
+					</div>
+					
+					<div class="col-md-12 row" style="margin-top:10px;">	
 						
-						<!--div class="col-md-2">
-							<span> Stock<span class="text text-danger"></span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="empotage_stock" value="{{ old('empotage_stock') }}" >
-														
-						</div-->
+						<div class="col-md-3">
+						</div>
+
+						<div class="col-md-3">
+						</div>
+					
+						<div class="col-md-3">
+						</div>
 						
-						<div class="col-md-2">
+						<div class="col-md-3">
 							<span>&nbsp; <span class="text text-danger"></span></span>
 							<button type="submit" class="btn btn-success btn-sm rounded">ENREGISTRER</button> 
 						</div>
 						
 					</div>
-					
+
 				</div>
 
 				

@@ -22,11 +22,16 @@ use App\Agent_douane;
 use App\Vehicule;
 use App\Entree_sortie;
 use App\Poste;
+use App\Bureau_sortie;	
+use App\regime;
+use App\Moyen_transport;		
+use App\pays;
 use App\Produit;
 use App\ProduitFichier;
 use App\FraisLivraison;
 use App\BureauSortie;
 use App\Course;
+use App\Parametre;
 use Stdfn;
 use DB;
 
@@ -46,8 +51,16 @@ class ParametresController extends Controller
     public function declarations()
     {
     	$declarations = Declaration::leftjoin('declarant','declarant.declarant_id','declaration.declarant_id')->get();
-
-        return view('declarations',['declarations'=>$declarations]);
+		$regimes = Regime::get();
+		$declarants = Declarant::get();
+		$expediteurs = Expediteur::get();
+		$destinataires = Destinataire::get();
+		$payss = Pays::get();
+		$bureau_sorties = Bureau_sortie::get();
+		$moyen_transports = Moyen_transport::get();
+		return view('declarations',['declarations'=>$declarations, 'regimes'=>$regimes, 'declarants'=>$declarants, 'expediteurs'=>$expediteurs, 'destinataires'=>$destinataires, 'payss'=>$payss, 'bureau_sorties'=>$bureau_sorties, 'moyen_transports'=>$moyen_transports]);
+		//return view('declarations',['declarations'=>$declarations, 'regimes'=>$regimes]);
+        //return view('declarations',['declarations'=>$declarations]);
     }
 
 	//ajout de declaration
@@ -917,22 +930,86 @@ public function UpdateFichiersEmpotage($empotage_id, Request $request){
 }
 
 //liste des vehicules
-public function vehicules()
+public function vehicules_sous_penalite_poste1()
 {
+	$titre_page = 'Gestion des véhicules sous penalité';
+	$titre_liste_vehicule = 'Liste des véhicules sous penalité';
+	$vehicules = [];
+
+	$parametre_duree = Parametre::where(['parametre_statut'=>'VALIDE','parametre_code'=>'DUREE_STA'])->first();
+	$duree_limite 	 = ($parametre_duree)? $parametre_duree->parametre_valeur : 10;
+	$duree_limite = 1;
+	$where_condition = ' vehicule_statut="VALIDE" AND DATEDIFF(DATE(vehicule_date_sortie1), DATE(vehicule_date_entree1) ) > '. intval($duree_limite);
+
+	//die($where_condition);//Afficher la requete pour voir
+	$vehicules = Vehicule::selectRaw(' *, DATEDIFF(DATE(vehicule_date_sortie1), DATE(vehicule_date_entree1) ) AS RETARD ')->whereRaw($where_condition)->get();
 	
-$vehicules = Vehicule::where(['vehicule_statut'=>'VALIDE'])->get();
-						
-	return view('vehicules', ['vehicules'=>$vehicules]);
+	return view('vehicules_penalite_poste1', ['vehicules'=>$vehicules, 'titre_page'=>$titre_page, 'titre_liste_vehicule'=>$titre_liste_vehicule]);
 	
 }
 
+//liste des vehicules
+public function vehicules_sous_penalite_poste2()
+{
+	$titre_page = 'Gestion des véhicules sous penalité';
+	$titre_liste_vehicule = 'Liste des véhicules sous penalité';
+	$vehicules = [];
+
+	$parametre_duree = Parametre::where(['parametre_statut'=>'VALIDE','parametre_code'=>'DUREE_STA'])->first();
+	$duree_limite 	 = ($parametre_duree)? $parametre_duree->parametre_valeur : 10;
+	$duree_limite = 1;
+	$where_condition = ' vehicule_statut="VALIDE" AND DATEDIFF(DATE(vehicule_date_sortie2), DATE(vehicule_date_entree2) ) > '. intval($duree_limite);
+
+	//die($where_condition);//Afficher la requete pour voir
+	$vehicules = Vehicule::selectRaw(' *, DATEDIFF(DATE(vehicule_date_sortie2), DATE(vehicule_date_entree2) ) AS RETARD ')->whereRaw($where_condition)->get();
+	
+	return view('vehicules_penalite_poste2', ['vehicules'=>$vehicules, 'titre_page'=>$titre_page, 'titre_liste_vehicule'=>$titre_liste_vehicule]);
+	
+}
+
+//liste des vehicules
+public function vehicules($option_afficher_formulaire = null)
+{
+	$titre_page = 'Gestion des véhicules';
+	$titre_liste_vehicule = 'Liste des véhicules';
+	$vehicules = [];
+	$where_condition = ' vehicule_statut="VALIDE" ';
+
+	if(Auth::user()->profil_id == 2){
+		
+		$where_condition .= ' AND vehicule_statuts="ENTREE1" ';
+
+	}else if(Auth::user()->profil_id == 3){
+
+		$where_condition .= ' AND (vehicule_statuts="ENTREE1" OR vehicule_statuts="SORTIE1") ';
+
+	}else if(Auth::user()->profil_id == 4){
+
+		$where_condition .= ' AND (vehicule_statuts="SORTIE1" OR vehicule_statuts="ENTREE2") ';
+
+	}else if(Auth::user()->profil_id == 5){
+
+		$where_condition .= ' AND (vehicule_statuts="ENTREE2" OR vehicule_statuts="SORTIE2") ';
+
+	}
+
+	//die($where_condition);//Afficher la requete pour voir
+
+	$vehicules = Vehicule::whereRaw($where_condition)->get();
+
+	return view('vehicules', ['vehicules'=>$vehicules, 'option_afficher_formulaire'=>$option_afficher_formulaire, 'titre_page'=>$titre_page, 'titre_liste_vehicule'=>$titre_liste_vehicule]);
+	
+}
+
+///
 //ajout de vehicule
 public function SaveVehicule(Request $request)
 {
+	$parametre_duree = Parametre::where(['parametre_statut'=>'VALIDE','parametre_code'=>'DUREE_STA'])->first();
+	$duree_limite 	 = ($parametre_duree)? $parametre_duree->parametre_valeur : 10;
 
 	$vehicule								=new Vehicule();
-	//$vehicule->entree_sortie_id				= 'ENTREE';	
-	$vehicule->poste_id						= $request->poste_id;	
+	$vehicule->vehicule_duree_limite		= $duree_limite;
 	$vehicule->vehicule_code				= $request->vehicule_code;	
 	$vehicule->vehicule_marque				= $request->vehicule_marque;	
 	$vehicule->vehicule_numero_chassis		= $request->vehicule_numero_chassis;
@@ -940,23 +1017,39 @@ public function SaveVehicule(Request $request)
 	$vehicule->vehicule_immatriculation1	= $request->vehicule_immatriculation1;	
 	$vehicule->vehicule_immatriculation2	= $request->vehicule_immatriculation2;	
 	$vehicule->vehicule_numero_declaration	= $request->vehicule_numero_declaration;	
-	$vehicule->vehicule_nom_conducteur		= $request->ehicule_nom_conducteur;	
+	$vehicule->vehicule_nom_conducteur		= $request->vehicule_nom_conducteur;	
 	
-	$vehicule->vehicule_date_creation_entree1	= gmdate('Y-m-d H:i:s');	
-	//$vehicule->vehicule_date_creation_entree2	= gmdate('Y-m-d H:i:s');	
-	//$vehicule->vehicule_date_creation_sortie1	= gmdate('Y-m-d H:i:s');	
-	//$vehicule->vehicule_date_creation_sortie2	= gmdate('Y-m-d H:i:s');	
-	$vehicule->vehicule_date_entree1		= $request->vehicule_date_entree1;	
-	$vehicule->vehicule_heure_entree1		= $request->vehicule_heure_entree1;	
-	$vehicule->vehicule_date_entree2		= $request->vehicule_date_entree2;	
-	$vehicule->vehicule_heure_entree2		= $request->vehicule_heure_entree2;	
-	$vehicule->vehicule_date_sortie1		= $request->vehicule_date_sortie1;	
-	$vehicule->vehicule_heure_sortie1		= $request->vehicule_heure_sortie1;	
-	$vehicule->vehicule_date_sortie2		= $request->vehicule_date_sortie2;	
-	$vehicule->vehicule_heure_sortie2		= $request->vehicule_heure_sortie2;	
-	$vehicule->vehicule_date_suppression	= $request->vehicule_date_suppression;	
-	$vehicule->vehicule_user_entree1		= Auth::user()->id;
-	$vehicule->vehicule_statuts				= 'ENTREE POSTE 1';
+
+	if(Auth::user()->profil_id == 2){
+
+		$vehicule->vehicule_date_entree1			= gmdate('Y-m-d H:i:s');
+		$vehicule->vehicule_date_creation_entree1	= gmdate('Y-m-d H:i:s');	
+		$vehicule->vehicule_user_entree1			= Auth::user()->id;
+		$vehicule->vehicule_statuts					= 'ENTREE1';
+
+	}else if(Auth::user()->profil_id == 3){
+
+		$vehicule->vehicule_date_sortie1			= gmdate('Y-m-d H:i:s');
+		$vehicule->vehicule_date_creation_sortie1	= gmdate('Y-m-d H:i:s');	
+		$vehicule->vehicule_user_sortie1			= Auth::user()->id;
+		$vehicule->vehicule_statuts					= 'SORTIE1';
+
+	}else if(Auth::user()->profil_id == 4){
+
+		$vehicule->vehicule_date_entree2			= gmdate('Y-m-d H:i:s');
+		$vehicule->vehicule_date_creation_entree2	= gmdate('Y-m-d H:i:s');	
+		$vehicule->vehicule_user_entree2			= Auth::user()->id;
+		$vehicule->vehicule_statuts					= 'ENTREE2';
+
+	}else if(Auth::user()->profil_id == 5){
+		
+		$vehicule->vehicule_date_sortie2			= gmdate('Y-m-d H:i:s');
+		$vehicule->vehicule_date_creation_sortie2	= gmdate('Y-m-d H:i:s');	
+		$vehicule->vehicule_user_sortie2			= Auth::user()->id;
+		$vehicule->vehicule_statuts					= 'SORTIE2';
+
+	}
+
 	$vehicule->vehicule_statut				= 'VALIDE';		
 	
 	$vehicule->save();
@@ -1010,8 +1103,8 @@ public function SupprimerVehicule(Request $request)
 public function sortie_vehicule($vehicule_id, $situation){
 
 	$vehicule 	= Vehicule::where(['vehicule_id'=>$vehicule_id])->first();
-	
-	return view('sortie_vehicule_popup', ['vehicule'=>$vehicule, 'situation'=>$situation]);
+	$date_du_jour = gmdate('Y-m-d');
+	return view('sortie_vehicule_popup', ['vehicule'=>$vehicule, 'situation'=>$situation, 'date_du_jour'=>$date_du_jour]);
 	
 }
 
@@ -1022,16 +1115,22 @@ public function SaveSortieVehicule($vehicule_id, Request $request){
 	
 	if($situation == 'sp1'){
 			
-		$vehicule->vehicule_date_sortie1 			= $request->date_entree_sortie;
+		$vehicule->vehicule_date_sortie1 			= $request->date_entree_sortie. ' '. gmdate('H:i:s');
+		$vehicule->vehicule_statuts 				= 'sortie1';
+		$vehicule->vehicule_user_sortie1	 		= Auth::user()->id;
 		$vehicule->vehicule_date_creation_sortie1 	= gmdate('Y-m-d H:i:s');
 
 	}else if($situation == 'ep2'){
 
-		$vehicule->vehicule_date_entree2 			= $request->date_entree_sortie;
+		$vehicule->vehicule_date_entree2 			= $request->date_entree_sortie. ' '. gmdate('H:i:s');
+		$vehicule->vehicule_statuts 				= 'entree2';
+		$vehicule->vehicule_user_entree2	 		= Auth::user()->id;
 		$vehicule->vehicule_date_creation_entree2 	= gmdate('Y-m-d H:i:s');
 
 	}else if($situation == 'sp2'){
-		$vehicule->vehicule_date_sortie2 			= $request->date_entree_sortie;
+		$vehicule->vehicule_date_sortie2 			= $request->date_entree_sortie. ' '. gmdate('H:i:s');
+		$vehicule->vehicule_statuts 				= 'sortie2';
+		$vehicule->vehicule_user_sortie2	 		= Auth::user()->id;
 		$vehicule->vehicule_date_creation_sortie2 	= gmdate('Y-m-d H:i:s');
 	}
 
@@ -1067,116 +1166,7 @@ public function UpdateFichiersVehicule($vehicule_id, Request $request){
 	
 	
 }
-//liste des entree_sorties
-public function entree_sorties()
-{
-	
-	$entree_sorties = Entree_sortie::where(['entree_sortie_statut'=>'VALIDE'])->get();
-						
-	return view('entree_sorties', ['entree_sorties'=>$entree_sorties]);
-	
-}
 
-//ajout de entree_sortie
-public function SaveEntree_sortie(Request $request)
-{
-
-	$entree_sortie	= new Entree_sortie();	
-	$entree_sortie->entree_sortie_nom			= $request->entree_sortie_nom;	
-	$entree_sortie->entree_sortie_adresse			= $request->entree_sortie_adresse;	
-	$entree_sortie->entree_sortie_tel			= $request->entree_sortie_tel;	
-	$entree_sortie->entree_sortie_mail			= $request->entree_sortie_mail;	
-	$entree_sortie->entree_sortie_user			= $request->entree_sortie_user;	
-	$entree_sortie->entree_sortie_date_creation		= gmdate('Y-m-d H:i:s');
-	
-	$fichier 		= $request->file('entree_sortie_photo');
-	$fileName	 	= 'entree_sortie_'.''.time().'_'.Auth::user()->id.'_'.$fichier->getClientOriginalName();
-	$original_name 	= $fichier->getClientOriginalName();
-	
-	$mimetype	= $fichier->getMimeType();
-	
-	$fichier->move(public_path('images/entree_sorties'),$fileName);
-
-
-	$entree_sortie->entree_sortie_photo = $fileName;
-	$entree_sortie->save();
-	
-	$entree_sortie_id = $entree_sortie->entree_sortie_id;
-
-
-	return back()->with('message','OPÉRATION EFFECTUÉE AVEC SUCCÈS !');
-	
-}
-
-//détails d'un entree_sortie
-public function DetailsEntree_sortie(Request $request)
-{
-	
-	$entree_sortie_id = $request->entree_sortie_id;
-	
-	$entree_sortie 	= Entree_sortie::where(['entree_sortie_statut'=>'VALIDE','entree_sortie_id'=>$entree_sortie_id])
-					->first();
-	
-	if(!empty($entree_sortie)){
-
-		$piecesjointes = Entree_sortieFichier::where(['entree_sortie_id'=>$entree_sortie_id])->get();
-			
-		return view('details_entree_sortie', ['entree_sortie'=>$entree_sortie,'piecesjointes'=>$piecesjointes]);
-	
-	}else{
-		
-		return Redirect('entree_sorties')->with('warning',"LE DECLARANT QUE VOUS CHERCHEZ N'A PAS ÉTÉ TROUVÉ");
-	}
-	
-}
-
-
-//suppression d'un entree_sortie
-public function SupprimerEntree_sortie(Request $request)
-{
-	
-	$entree_sortie_id = $request->entree_sortie_id;
-
-	$entree_sortie = Entree_sortie::find($entree_sortie_id);
-
-	if(!empty($entree_sortie)){
-
-		$entree_sortie->entree_sortie_date_suppression 	= gmdate('Y-m-d H:i:s');
-		$entree_sortie->entree_sortie_statut 			= "SUPPRIME";
-		$entree_sortie->exists 				= true;
-		$entree_sortie->save();
-		
-		echo 1;
-		
-	}else{
-		echo 0;
-	}
-}
-
-//Ajout de fichiers à la demande au tout le long du processus entree_sortie
-public function UpdateFichiersEntree_sortie($entree_sortie_id, Request $request){
-	
-	$entree_sortie = Entree_sortie::find($entree_sortie_id);
-	
-	$fichier 		= $request->file('entree_sorties_fichiers');
-	$fileName	 	= 'entree_sortie_'.$entree_sortie_id.'_'.time().'_'.Auth::user()->id.'_'.$fichier->getClientOriginalName();
-	$original_name 	= $fichier->getClientOriginalName();
-	
-	$mimetype	= $fichier->getMimeType();
-	
-		$fichier->move(public_path('images/entree_sorties'),$fileName);
-	
-	
-	$piecejointe = new Entree_sortieFichier();
-	
-	$piecejointe->user_id 						= Auth::user()->id;
-	$piecejointe->entree_sortie_id 					= $entree_sortie_id;
-	$piecejointe->autreimage_photo 				= $fileName;
-	$piecejointe->autreimage_date_creation 			= gmdate('Y-m-d H:i:s');
-	$piecejointe->save();
-	
-	return $piecejointe;	
-}
 //liste des postes
 public function postes()
 {
@@ -1263,31 +1253,7 @@ public function SupprimerPoste(Request $request)
 	}
 }
 
-//Ajout de fichiers à la demande au tout le long du processus poste
-public function UpdateFichiersPoste($poste_id, Request $request){
-	
-	$poste = Poste::find($poste_id);
-	
-	$fichier 		= $request->file('postes_fichiers');
-	$fileName	 	= 'poste_'.$poste_id.'_'.time().'_'.Auth::user()->id.'_'.$fichier->getClientOriginalName();
-	$original_name 	= $fichier->getClientOriginalName();
-	
-	$mimetype	= $fichier->getMimeType();
-	
-		$fichier->move(public_path('images/postes'),$fileName);
-	
-	
-	$piecejointe = new PosteFichier();
-	
-	$piecejointe->user_id 						= Auth::user()->id;
-	$piecejointe->poste_id 					= $poste_id;
-	$piecejointe->autreimage_photo 				= $fileName;
-	$piecejointe->autreimage_date_creation 			= gmdate('Y-m-d H:i:s');
-	$piecejointe->save();
-	
-	return $piecejointe;	
-	
-}
+
 	//liste des produits
     public function produits()
     {

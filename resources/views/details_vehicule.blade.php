@@ -5,7 +5,7 @@
 @if(!empty($vehicule))
 <ul class="breadcrumb no-border no-radius b-b b-light pull-in"> 
 	<li><a href="{{ route('home') }}"><i class="fa fa-home"></i> Accueil</a></li> 
-	<li><a href="{{ route('vehicules') }}">Véhicules</a></li> 
+	<!--li><a href="{{ route('vehicules') }}">Véhicules</a></li--> 
 	<li class="active">Véhicule {{ $vehicule->vehicule_code }}</li> 
 </ul> 
 
@@ -95,6 +95,10 @@ ul.no_liste_item li {
 							<span class="badge bg-light" style="background: none;">{{ $vehicule->vehicule_numero_immatriculation1 }}</span> 
 							<i class="fa fa- icon-muted"></i> Numéro immatriculation
 						</div> 
+						<div class="list-group-item"> 
+							<span class="badge bg-light" style="background: none;">{{ $vehicule->vehicule_numero_immatriculation2 }}</span> 
+							<i class="fa fa- icon-muted"></i> Numéro immatriculation 2
+						</div> 
 									
 					</div> 
 					
@@ -116,7 +120,7 @@ ul.no_liste_item li {
 					<div class="list-group no-radius alt"> 
 						
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_creation_entree1) }}</span> 
+							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_entree1) }}</span> 
 							<i class="fa fa- icon-muted"></i> Date d'entrée 1
 						</span>
 						<span class="list-group-item"> 
@@ -136,10 +140,30 @@ ul.no_liste_item li {
 							<i class="fa fa- icon-muted"></i> Status
 						</span>
 						
-						<span class="list-group-item"> 
+						@if($vehicule->vehicule_statuts == "entree1" && $vehicule->user_entree1)
+						<span class="list-group-item">
 							<span class="badge bg-light">{{ $vehicule->user_entree1->nom }} {{ $vehicule->user_entree1->prenoms }}</span> 
 							<i class="fa fa- icon-muted"></i> Enregistré par
 						</span>
+						@endif
+						@if($vehicule->vehicule_statuts == "sortie1" && $vehicule->user_sortie1)
+						<span class="list-group-item"> 
+							<span class="badge bg-light">{{ $vehicule->user_sortie1->nom }} {{ $vehicule->user_sortie1->prenoms }}</span> 
+							<i class="fa fa- icon-muted"></i> Enregistré par
+						</span>
+						@endif
+						@if($vehicule->vehicule_statuts == "entree2" && $vehicule->user_entree2)
+						<span class="list-group-item"> 
+							<span class="badge bg-light">{{ $vehicule->user_entree2->nom }} {{ $vehicule->user_entree2->prenoms }}</span> 
+							<i class="fa fa- icon-muted"></i> Enregistré par
+						</span>
+						@endif
+						@if($vehicule->vehicule_statuts == "sortie2" && $vehicule->user_sortie2)
+						<span class="list-group-item"> 
+							<span class="badge bg-light">{{ $vehicule->user_sortie2->nom }} {{ $vehicule->user_sortie2->prenoms }}</span> 
+							<i class="fa fa- icon-muted"></i> Enregistré par
+						</span>
+						@endif
 						
 						<span class="list-group-item">
 							@if(Auth::user()->profil_id == 3)

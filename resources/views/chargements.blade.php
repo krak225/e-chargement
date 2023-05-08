@@ -54,46 +54,77 @@
 					
 					<div class="col-md-12 row">
 						
-						<div class="col-md-5">
-							<span> Nom du chargement <span class="text text-danger">*</span></span>
+						<div class="col-md-4">
+							<span> N° chargement <span class="text text-danger">*</span></span>
 							<input placeholder="" type="text" class="form-control" name="chargement_nom"  value="{{ old('chargement_nom') }}" required>
 						</div>
 						
-						<div class="col-md-5">
-							<span> Description<span class="text text-danger"></span></span>
+						<div class="col-md-4">
+							<span> N° LDC<span class="text text-danger"></span></span>
 							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="chargement_description" value="{{ old('chargement_description') }}">
 						</div>
 						
-						<div class="col-md-2">
-							<span> Prix<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="chargement_prix" required> 
+						<div class="col-md-4">
+							<span> Date chargement <span class="text text-danger">*</span></span>
+							<input placeholder="" type="date" class="form-control" name="declaration_date"  value="{{ old('declaration_date') }}" required>
 						</div>
 
 					</div>
 					
-					<div class="col-md-12 row" style="margin-top:10px;">	
+					<div class="col-md-12 row" style="margin-top:10px;">
+
+						<div class="col-md-4">
+							<span> Lieu chargement <span class="text text-danger">*</span></span>
+							<input placeholder="" type="text" class="form-control" name="chargement_nom"  value="{{ old('chargement_nom') }}" required>
+						</div>
 						
-						<div class="col-md-5">
-							<span> Photo<span class="text text-danger">*</span></span>
+						<div class="col-md-4">
+							<span> Moyen transport<span class="text text-danger"></span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="chargement_description" value="{{ old('chargement_description') }}">
+						</div>
+						
+						<div class="col-md-4">
+							<span> Date fin <span class="text text-danger">*</span></span>
+							<input placeholder="" type="date" class="form-control" name="declaration_date"  value="{{ old('declaration_date') }}" required>
+						</div>
+						
+					</div>
+
+					<div class="col-md-12 row" style="margin-top:10px;">
+						
+						<div class="col-md-4">
+							<span> Fichier<span class="text text-danger">*</span></span>
 							<input style="padding-top:0px;" placeholder="" type="file" class="form-control" name="chargement_photo" required>
 							
 						</div>
 						
+						<div class="col-md-4">
+							<span> Pays destination<span class="text text-danger"></span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="chargement_description" value="{{ old('chargement_description') }}">
+						</div>
 						
+						<div class="col-md-4">
+							<span> Nombre jours <span class="text text-danger">*</span></span>
+							<input placeholder="" type="date" class="form-control" name="declaration_date"  value="{{ old('declaration_date') }}" required>
+						</div>
+
+					</div>
+					
+					<div class="col-md-12 row" style="margin-top:10px;">
 						
-						<!--div class="col-md-2">
-							<span> Stock<span class="text text-danger"></span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="chargement_stock" value="{{ old('chargement_stock') }}" >
-														
-						</div-->
+						<div class="col-md-4">
+						</div>
 						
-						<div class="col-md-2">
+						<div class="col-md-4">
+						</div>
+						
+						<div class="col-md-4">
 							<span>&nbsp; <span class="text text-danger"></span></span>
 							<button type="submit" class="btn btn-success btn-sm rounded">ENREGISTRER</button> 
 						</div>
-						
+
 					</div>
-					
+
 				</div>
 
 				

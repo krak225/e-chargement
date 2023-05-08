@@ -16,7 +16,7 @@
 						
 						<div class="col-md-12">
 							<span> Date <span class="text text-danger">*</span></span>
-							<input placeholder="" type="date" class="form-control" name="date_entree_sortie" value="" required>
+							<input placeholder="" type="date" class="form-control" name="date_entree_sortie" value="<?php echo e($date_du_jour); ?>" readonly0 required>
 						</div>
 						
 					</div>

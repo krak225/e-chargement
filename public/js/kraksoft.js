@@ -76,7 +76,7 @@
 			"lengthMenu": [[10, 25, 50, 100, 500, 1000], [10, 25, 50, 100, 500, 1000]],
 			"bFilter" : true,   
 			"bLengthChange": true,
-			"order": [[ 1, "desc" ]],
+			"order": [[ 0, "desc" ]],
 			});
 			
 		});

@@ -31,7 +31,7 @@
 @endif
 
 <div class="m-b-md"> 
-	<h3 class="m-b-none">Gestion des declarants</h3> 
+	<h3 class="m-b-none">Gestion des déclarants</h3> 
 </div>
 
 
@@ -54,38 +54,38 @@
 					
 					<div class="col-md-12 row">
 						
-						<div class="col-md-5">
-							<span> Nom du declarant <span class="text text-danger">*</span></span>
+						<div class="col-md-3">
+							<span> Nom déclarant <span class="text text-danger">*</span></span>
 							<input placeholder="" type="text" class="form-control" name="declarant_nom"  value="{{ old('declarant_nom') }}" required>
 						</div>
 						
-						<div class="col-md-5">
-							<span> Description<span class="text text-danger"></span></span>
+						<div class="col-md-3">
+							<span> Adresse<span class="text text-danger"></span></span>
 							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="declarant_description" value="{{ old('declarant_description') }}">
 						</div>
 						
-						<div class="col-md-2">
-							<span> Prix<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="declarant_prix" required> 
+						<div class="col-md-3">
+							<span> Mail<span class="text text-danger"></span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="declarant_description" value="{{ old('declarant_description') }}">
+						</div>
+
+						<div class="col-md-3">
+							<span> Téléphone<span class="text text-danger"></span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="declarant_description" value="{{ old('declarant_description') }}">
 						</div>
 
 					</div>
 					
 					<div class="col-md-12 row" style="margin-top:10px;">	
 						
-						<div class="col-md-5">
-							<span> Photo<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="file" class="form-control" name="declarant_photo" required>
-							
+						<div class="col-md-3">
 						</div>
 						
+						<div class="col-md-3">
+						</div>
 						
-						
-						<!--div class="col-md-2">
-							<span> Stock<span class="text text-danger"></span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="declarant_stock" value="{{ old('declarant_stock') }}" >
-														
-						</div-->
+						<div class="col-md-3">
+						</div>
 						
 						<div class="col-md-2">
 							<span>&nbsp; <span class="text text-danger"></span></span>

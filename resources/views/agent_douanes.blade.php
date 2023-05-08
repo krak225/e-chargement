@@ -31,7 +31,7 @@
 @endif
 
 <div class="m-b-md"> 
-	<h3 class="m-b-none">Gestion des agent_douanes</h3> 
+	<h3 class="m-b-none">Gestion des agents des douanes</h3> 
 </div>
 
 
@@ -52,42 +52,53 @@
 			
 				<div class="form-group{{ $errors->has('agent_douane_nom') ? ' has-error' : '' }}">
 					
-					<div class="col-md-12 row">
+				<div class="col-md-12 row" style="margin-top:10px;">
 						
-						<div class="col-md-5">
-							<span> Nom du agent_douane <span class="text text-danger">*</span></span>
+						<div class="col-md-3">
+							<span> Matricule <span class="text text-danger">*</span></span>
 							<input placeholder="" type="text" class="form-control" name="agent_douane_nom"  value="{{ old('agent_douane_nom') }}" required>
 						</div>
 						
-						<div class="col-md-5">
-							<span> Description<span class="text text-danger"></span></span>
+						<div class="col-md-6">
+							<span> Nom et prénoms<span class="text text-danger"></span></span>
 							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="agent_douane_description" value="{{ old('agent_douane_description') }}">
 						</div>
 						
-						<div class="col-md-2">
-							<span> Prix<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="agent_douane_prix" required> 
+						<div class="col-md-3">
+							<span> Date entrée en douane <span class="text text-danger">*</span></span>
+							<input placeholder="" type="date" class="form-control" name="declaration_date_fin"  value="{{ old('declaration_date_fin') }}" required>
 						</div>
 
 					</div>
 					
 					<div class="col-md-12 row" style="margin-top:10px;">	
 						
-						<div class="col-md-5">
-							<span> Photo<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="file" class="form-control" name="agent_douane_photo" required>
-							
+						<div class="col-md-4">
+							<span> Grade <span class="text text-danger">*</span></span>
+							<input placeholder="" type="text" class="form-control" name="agent_douane_nom"  value="{{ old('agent_douane_nom') }}" required>
 						</div>
 						
+						<div class="col-md-4">
+							<span> Téléphone<span class="text text-danger"></span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="agent_douane_description" value="{{ old('agent_douane_description') }}">
+						</div>
 						
+						<div class="col-md-4">
+							<span> Mail<span class="text text-danger"></span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="agent_douane_description" value="{{ old('agent_douane_description') }}">
+						</div>
 						
-						<!--div class="col-md-2">
-							<span> Stock<span class="text text-danger"></span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="agent_douane_stock" value="{{ old('agent_douane_stock') }}" >
-														
-						</div-->
+					</div>
+
+					<div class="col-md-12 row" style="margin-top:10px;">	
 						
-						<div class="col-md-2">
+						<div class="col-md-4">
+						</div>
+						
+						<div class="col-md-4">
+						</div>
+						
+						<div class="col-md-4">
 							<span>&nbsp; <span class="text text-danger"></span></span>
 							<button type="submit" class="btn btn-success btn-sm rounded">ENREGISTRER</button> 
 						</div>

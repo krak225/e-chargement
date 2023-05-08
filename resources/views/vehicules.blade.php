@@ -34,7 +34,7 @@
 	<h3 class="m-b-none">Gestion des véhicules</h3> 
 </div>
 
-
+@if(Auth::user()->profil_id == 2 || $option_afficher_formulaire == 'new')
 <div class="panel panel-default"> 
 
 	<div class="wizard-steps clearfix" id="form-wizard"> 
@@ -117,38 +117,43 @@
 	
 	
 </div>
-
+@endif
 
 <section class="panel panel-default"> 
-	<header class="panel-heading"> Liste des vehicules
-		<!--div class="actions pull-right" style="padding:0px;"> 
-			<a class="btn btn-sm btn-info" href="{{route('vehicules')}}" style="padding:2px 10px;"><i class="fa fa-plus"></i> Nouveau</a>
-		</div-->
+	<header class="panel-heading"> Liste des véhicules
+		<div class="actions pull-right" style="padding:0px;"> 
+			<a class="btn btn-sm btn-info" href="{{route('vehicules','new')}}" style="padding:2px 10px;"><i class="fa fa-plus"></i> Nouveau véhicule</a>
+		</div>
 	</header> 
 	
 	<div class="table-responsive"> 
 		<table id="table_courriers" class="table table-striped m-b-none datatable "> 
 			<thead> 
 				<tr>
+					<th style="display:none;"></th>
+					<th colspan="" width="">Action</th>
 					<th width="">Marque</th>
 					<th width="">N° chassis</th>
 					<th width="">Immat 1</th>
-					<th width="">Immat 2</th>
 					<th width="">N° déclaration</th>
-					<th colspan="" width="">Action</th>
+					<th width="">Statut</th>
 				</tr> 
 			</thead> 
 			<tbody>
 			@foreach($vehicules as $vehicule)
 				<tr>
+					<td style="display:none;">{{$vehicule->vehicule_id}}</a>
+					<td><a href="{{route('DetailsVehicule',$vehicule->vehicule_id)}}"><i class="fa fa-cogs text-info" title="Afficher les détails"></i></a>&nbsp;&nbsp;
+					@if(Auth::user()->profil_id != 1)
+					<span class="btnModifierVehicule" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor: pointer;"><i class="fa fa-edit text-warning" title="Modifier"></i></span>&nbsp;&nbsp;
+					<span class="btnSupprimerVehicule" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor: pointer;"><i class="fa fa-times text-danger" title="Supprimer ce vehicule"></i></a> 
+					@endif
+					</td>
 					<td>{{$vehicule->vehicule_marque}}</td>
 					<td>{{$vehicule->vehicule_numero_chassis}}</td>
 					<td>{{$vehicule->vehicule_immatriculation1}}</td>
-					<td>{{$vehicule->vehicule_immatriculation2}}</td>
 					<td>{{$vehicule->vehicule_numero_declaration}}</td>
-					<td><a href="{{route('DetailsVehicule',$vehicule->vehicule_id)}}"><i class="fa fa-cogs text-info" title="Afficher les détails"></i></a>&nbsp;&nbsp;
-					<span class="btnModifierVehicule" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor: pointer;"><i class="fa fa-edit text-warning" title="Modifier"></i></span>&nbsp;&nbsp;
-					<span class="btnSupprimerVehicule" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor: pointer;"><i class="fa fa-times text-danger" title="Supprimer ce vehicule"></i></a></td> 
+					<td>{{$vehicule->vehicule_statuts}}</td>
 				</tr>	
 			@endforeach
 			</tbody> 

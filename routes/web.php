@@ -119,7 +119,9 @@ Route::post('upload_fichiers/{agent_douane_id}','ParametresController@UpdateFich
 // Fin agents douane
 
 //les routes pour gerer vehicules
-Route::get('vehicules','ParametresController@vehicules')->name('vehicules');
+Route::get('vehicules/{option_afficher_formulaire?}','ParametresController@vehicules')->name('vehicules');
+Route::get('vehicules_sous_penalite_poste1','ParametresController@vehicules_sous_penalite_poste1')->name('vehicules_sous_penalite_poste1');
+Route::get('vehicules_sous_penalite_poste2','ParametresController@vehicules_sous_penalite_poste2')->name('vehicules_sous_penalite_poste2');
 Route::post('vehicules','ParametresController@SaveVehicule')->name('SaveVehicule');
 Route::get('vehicule/{vehicule_id}','ParametresController@DetailsVehicule')->name('DetailsVehicule');
 Route::post('supprimer_vehicule','ParametresController@SupprimerVehicule')->name('SupprimerVehicule');
@@ -128,19 +130,6 @@ Route::post('sortie_vehicule/{vehicule_id}','ParametresController@SaveSortieVehi
 
 Route::post('update_photo_vehicule/{vehicule_id}','ParametresController@UpdateVehiculePhoto')->name('UpdateVehiculePhoto');
 Route::post('upload_fichiers/{vehicule_id}','ParametresController@UpdateFichiers')->name('UpdateFichiers');
-
-// Fin les routes pour gerer vehicules
-
-//les routes pour gerer entree_sorties
-Route::get('entree_sorties','ParametresController@entree_sorties')->name('entree_sorties');
-Route::post('entree_sorties','ParametresController@SaveEntree_sortie')->name('SaveEntree_sortie');
-Route::get('entree_sortie/{entree_sortie_id}','ParametresController@DetailsEntree_sortie')->name('DetailsEntree_sortie');
-Route::post('supprimer_entree_sortie','ParametresController@SupprimerEntree_sortie')->name('SupprimerEntree_sortie');
-
-Route::post('update_photo_entree_sortie/{entree_sortie_id}','ParametresController@UpdateEntree_sortiePhoto')->name('UpdateEntree_sortiePhoto');
-Route::post('upload_fichiers/{entree_sortie_id}','ParametresController@UpdateFichiers')->name('UpdateFichiers');
-
-//Fin les routes pour gerer entree_sorties
 
 //les routes pour gerer postes
 Route::get('postes','ParametresController@postes')->name('postes');
@@ -152,6 +141,31 @@ Route::post('update_photo_poste/{poste_id}','ParametresController@UpdatePostePho
 Route::post('upload_fichiers/{poste_id}','ParametresController@UpdateFichiers')->name('UpdateFichiers');
 
 // Fin les routes pour gerer postes
+
+//les routes pour gerer regimes
+Route::get('regimes','ParametresController@regimes')->name('regimes');
+Route::post('regimes','ParametresController@SaveRegime')->name('SaveRegime');
+Route::get('regime/{regime_id}','ParametresController@DetailsRegime')->name('DetailsRegime');
+Route::post('supprimer_regime','ParametresController@SupprimerRegime')->name('SupprimerRegime');
+
+// fin regime
+
+//les routes pour gerer bureau_sorties
+Route::get('bureau_sorties','ParametresController@bureau_sorties')->name('bureau_sorties');
+Route::post('bureau_sorties','ParametresController@SaveBureau_sortie')->name('SaveBureau_sortie');
+Route::get('bureau_sortie/{bureau_sortie_id}','ParametresController@DetailsBureau_sortie')->name('DetailsBureau_sortie');
+Route::post('supprimer_bureau_sortie','ParametresController@SupprimerBureau_sortie')->name('SupprimerBureau_sortie');
+
+// fin bureau_sortie
+
+//les routes pour gerer moyen_transports
+Route::get('moyen_transports','ParametresController@moyen_transports')->name('moyen_transports');
+Route::post('moyen_transports','ParametresController@SaveMoyen_transport')->name('SaveMoyen_transport');
+Route::get('moyen_transport/{moyen_transport_id}','ParametresController@DetailsMoyen_transport')->name('DetailsMoyen_transport');
+Route::post('supprimer_moyen_transport','ParametresController@SupprimerMoyen_transport')->name('SupprimerMoyen_transport');
+
+Route::post('update_photo_moyen_transport/{moyen_transport_id}','ParametresController@UpdateMoyen_transportPhoto')->name('UpdateMoyen_transportPhoto');
+Route::post('upload_fichiers/{moyen_transport_id}','ParametresController@UpdateFichiers')->name('UpdateFichiers');
 
 Route::get('categories','ParametresController@categories')->name('categories');
 Route::post('categories','ParametresController@SaveCategorie')->name('SaveCategorie');

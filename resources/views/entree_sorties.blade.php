@@ -31,7 +31,7 @@
 @endif
 
 <div class="m-b-md"> 
-	<h3 class="m-b-none">Gestion des entree_sorties</h3> 
+	<h3 class="m-b-none">Gestion des mouvements des vehicules</h3> 
 </div>
 
 

@@ -54,38 +54,38 @@
 					
 					<div class="col-md-12 row">
 						
-						<div class="col-md-5">
-							<span> Nom du expediteur <span class="text text-danger">*</span></span>
-							<input placeholder="" type="text" class="form-control" name="expediteur_nom"  value="{{ old('expediteur_nom') }}" required>
+						<div class="col-md-3">
+							<span> Nom expéditeur <span class="text text-danger">*</span></span>
+							<input placeholder="" type="text" class="form-control" name="declarant_nom"  value="{{ old('declarant_nom') }}" required>
 						</div>
 						
-						<div class="col-md-5">
-							<span> Description<span class="text text-danger"></span></span>
-							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="expediteur_description" value="{{ old('expediteur_description') }}">
+						<div class="col-md-3">
+							<span> Adresse<span class="text text-danger"></span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="declarant_description" value="{{ old('declarant_description') }}">
 						</div>
 						
-						<div class="col-md-2">
-							<span> Prix<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="expediteur_prix" required> 
+						<div class="col-md-3">
+							<span> Mail<span class="text text-danger"></span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="declarant_description" value="{{ old('declarant_description') }}">
+						</div>
+
+						<div class="col-md-3">
+							<span> Téléphone<span class="text text-danger"></span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="declarant_description" value="{{ old('declarant_description') }}">
 						</div>
 
 					</div>
 					
 					<div class="col-md-12 row" style="margin-top:10px;">	
 						
-						<div class="col-md-5">
-							<span> Photo<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="file" class="form-control" name="expediteur_photo" required>
-							
+					<div class="col-md-3">
 						</div>
 						
+						<div class="col-md-3">
+						</div>
 						
-						
-						<!--div class="col-md-2">
-							<span> Stock<span class="text text-danger"></span></span>
-							<input style="padding-top:0px;" placeholder="" type="number" class="form-control" name="expediteur_stock" value="{{ old('expediteur_stock') }}" >
-														
-						</div-->
+						<div class="col-md-3">
+						</div>
 						
 						<div class="col-md-2">
 							<span>&nbsp; <span class="text text-danger"></span></span>

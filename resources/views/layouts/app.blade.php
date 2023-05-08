@@ -189,7 +189,7 @@
 											<li class=""> 
 												<a href="{{route('empotages')}}" class="active"> 
 												<i class="fa fa-angle-right"></i> 
-												<span>Tous les empotagess</span> </a> 
+												<span>Tous les empotages</span> </a> 
 											</li> 
 											<!--li class=""> 
 												<a href="{{route('empotages')}}" class="active"> 
@@ -296,7 +296,7 @@
 										 </ul> 
 									</li>
 
-									<li class="@if(Request::is('vehicules')) active @endif"> 
+									<li class="@if(Request::is('vehicules','vehicules_sous_penalite_poste1','vehicules_sous_penalite_poste2')) active @endif"> 
 										 <a href="#" class=""> 
 											 <i class="fa fa-users icon"> 
 											 <b class="bg-info"></b> </i> 
@@ -311,60 +311,19 @@
 												<a href="{{route('vehicules')}}" class="active"> 
 												<i class="fa fa-angle-right"></i> 
 												<span>Tous les véhicules</span> </a> 
-											</li> 
-											<!--li class=""> 
-												<a href="{{route('vehicules')}}" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un vehicules</span> </a> 
-											</li--> 
-										 </ul> 
-									</li>
-
-									<li class="@if(Request::is('entree_sorties')) active @endif"> 
-										 <a href="#" class=""> 
-											 <i class="fa fa-users icon"> 
-											 <b class="bg-info"></b> </i> 
-											 <span class="pull-right"> 
-												<i class="fa fa-angle-down text"></i> 
-												<i class="fa fa-angle-up text-active"></i> 
-											 </span> 
-											 <span>ENTREES OU SORTIES</span> 
-										 </a> 
-										 <ul class="nav lt"> 
+											</li>
+											@if(Auth::user()->profil_id == 1)
 											<li class=""> 
-												<a href="{{route('entree_sorties')}}" class="active"> 
+												<a href="{{route('vehicules_sous_penalite_poste1')}}" class="active"> 
 												<i class="fa fa-angle-right"></i> 
-												<span>Tous les entrées et sorties</span> </a> 
-											</li> 
-											<!--li class=""> 
-												<a href="{{route('entree_sorties')}}" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un entree_sorties</span> </a> 
-											</li--> 
-										 </ul> 
-									</li>
-
-									<li class="@if(Request::is('postes')) active @endif"> 
-										 <a href="#" class=""> 
-											 <i class="fa fa-users icon"> 
-											 <b class="bg-info"></b> </i> 
-											 <span class="pull-right"> 
-												<i class="fa fa-angle-down text"></i> 
-												<i class="fa fa-angle-up text-active"></i> 
-											 </span> 
-											 <span>POSTES</span> 
-										 </a> 
-										 <ul class="nav lt"> 
+												<span>Véhicules sous pénalité au poste 1</span> </a> 
+											</li>
 											<li class=""> 
-												<a href="{{route('postes')}}" class="active"> 
+												<a href="{{route('vehicules_sous_penalite_poste2')}}" class="active"> 
 												<i class="fa fa-angle-right"></i> 
-												<span>Tous les postes</span> </a> 
-											</li> 
-											<!--li class=""> 
-												<a href="{{route('postes')}}" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un postes</span> </a> 
-											</li--> 
+												<span>Véhicules sous pénalité au poste 2</span> </a> 
+											</li>
+											@endif
 										 </ul> 
 									</li>
 

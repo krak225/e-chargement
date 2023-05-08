@@ -191,7 +191,7 @@
 											<li class=""> 
 												<a href="<?php echo e(route('empotages')); ?>" class="active"> 
 												<i class="fa fa-angle-right"></i> 
-												<span>Tous les empotagess</span> </a> 
+												<span>Tous les empotages</span> </a> 
 											</li> 
 											<!--li class=""> 
 												<a href="<?php echo e(route('empotages')); ?>" class="active"> 
@@ -298,7 +298,7 @@
 										 </ul> 
 									</li>
 
-									<li class="<?php if(Request::is('vehicules')): ?> active <?php endif; ?>"> 
+									<li class="<?php if(Request::is('vehicules','vehicules_sous_penalite_poste1','vehicules_sous_penalite_poste2')): ?> active <?php endif; ?>"> 
 										 <a href="#" class=""> 
 											 <i class="fa fa-users icon"> 
 											 <b class="bg-info"></b> </i> 
@@ -313,60 +313,19 @@
 												<a href="<?php echo e(route('vehicules')); ?>" class="active"> 
 												<i class="fa fa-angle-right"></i> 
 												<span>Tous les véhicules</span> </a> 
-											</li> 
-											<!--li class=""> 
-												<a href="<?php echo e(route('vehicules')); ?>" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un vehicules</span> </a> 
-											</li--> 
-										 </ul> 
-									</li>
-
-									<li class="<?php if(Request::is('entree_sorties')): ?> active <?php endif; ?>"> 
-										 <a href="#" class=""> 
-											 <i class="fa fa-users icon"> 
-											 <b class="bg-info"></b> </i> 
-											 <span class="pull-right"> 
-												<i class="fa fa-angle-down text"></i> 
-												<i class="fa fa-angle-up text-active"></i> 
-											 </span> 
-											 <span>ENTREES OU SORTIES</span> 
-										 </a> 
-										 <ul class="nav lt"> 
+											</li>
+											<?php if(Auth::user()->profil_id == 1): ?>
 											<li class=""> 
-												<a href="<?php echo e(route('entree_sorties')); ?>" class="active"> 
+												<a href="<?php echo e(route('vehicules_sous_penalite_poste1')); ?>" class="active"> 
 												<i class="fa fa-angle-right"></i> 
-												<span>Tous les entrées et sorties</span> </a> 
-											</li> 
-											<!--li class=""> 
-												<a href="<?php echo e(route('entree_sorties')); ?>" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un entree_sorties</span> </a> 
-											</li--> 
-										 </ul> 
-									</li>
-
-									<li class="<?php if(Request::is('postes')): ?> active <?php endif; ?>"> 
-										 <a href="#" class=""> 
-											 <i class="fa fa-users icon"> 
-											 <b class="bg-info"></b> </i> 
-											 <span class="pull-right"> 
-												<i class="fa fa-angle-down text"></i> 
-												<i class="fa fa-angle-up text-active"></i> 
-											 </span> 
-											 <span>POSTES</span> 
-										 </a> 
-										 <ul class="nav lt"> 
+												<span>Véhicules sous pénalité au poste 1</span> </a> 
+											</li>
 											<li class=""> 
-												<a href="<?php echo e(route('postes')); ?>" class="active"> 
+												<a href="<?php echo e(route('vehicules_sous_penalite_poste2')); ?>" class="active"> 
 												<i class="fa fa-angle-right"></i> 
-												<span>Tous les postes</span> </a> 
-											</li> 
-											<!--li class=""> 
-												<a href="<?php echo e(route('postes')); ?>" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un postes</span> </a> 
-											</li--> 
+												<span>Véhicules sous pénalité au poste 2</span> </a> 
+											</li>
+											<?php endif; ?>
 										 </ul> 
 									</li>
 
