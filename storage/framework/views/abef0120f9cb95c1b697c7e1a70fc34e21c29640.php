@@ -42,6 +42,7 @@
 		<table id="table_courriers" class="table table-striped m-b-none datatable "> 
 			<thead> 
 				<tr>
+					<th style="display:none;"></th>
 					<th colspan="" width="">Action</th>
 					<th width="">Marque</th>
 					<th width="">N° chassis</th>
@@ -55,6 +56,7 @@
 			<tbody>
 			<?php $__currentLoopData = $vehicules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 				<tr>
+					<td style="display:none;"><?php echo e($vehicule->vehicule_id); ?></a>
 					<td><a href="<?php echo e(route('DetailsVehicule',$vehicule->vehicule_id)); ?>"><i class="fa fa-cogs text-info" title="Afficher les détails"></i></a>&nbsp;&nbsp;
 					</td>
 					<td><?php echo e($vehicule->vehicule_marque); ?></td>
