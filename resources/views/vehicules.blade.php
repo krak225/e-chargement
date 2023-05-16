@@ -155,7 +155,7 @@
 					<td>{{$vehicule->vehicule_immatriculation1}}</td>
 					<td>{{$vehicule->vehicule_numero_chassis}}</td>
 					<td>{{$vehicule->vehicule_numero_declaration}}</td>
-					<td style="text-transform: uppercase;"><span class="badge bg-light bg-warning">{{ str_replace('1',' Port', str_replace('2',' OIC', $vehicule->vehicule_statuts))}}</span></td>
+					<td style="text-transform: uppercase;"><span class="badge bg-light label-{{$vehicule->vehicule_statuts}}">{{ str_replace('1',' Port', str_replace('2',' OIC', $vehicule->vehicule_statuts))}}</span></td>
 				</tr>	
 			@endforeach
 			</tbody> 

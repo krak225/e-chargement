@@ -136,7 +136,7 @@ ul.no_liste_item li {
 							<i class="fa fa- icon-muted"></i> Date sortie de l'OIC
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light bg-warning">{{ str_replace('1',' Port', str_replace('2',' OIC', $vehicule->vehicule_statuts))}}</span> 
+							<span class="badge bg-light label-{{$vehicule->vehicule_statuts}}">{{ str_replace('1',' Port', str_replace('2',' OIC', $vehicule->vehicule_statuts))}}</span> 
 							<i class="fa fa- icon-muted"></i> Status
 						</span>
 						

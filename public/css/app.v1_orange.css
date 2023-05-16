@@ -18,43 +18,6 @@ th.money, td.money{
 }
 
 
-/*couleur par statut des tache*/
-.label-brouillon{
-	background-color: #aab6fe;
-}
-
-
-/*label-primary*/
-.label-encours{
-	background-color: #f0ad4e;
-}
-
-
-/*label-success*/
-.label-termine{
-	background-color: #5cb85c;
-}
-
-/*label-success*/
-.label-traite{
-	background-color: #5cb85c;
-}
-
-/*label-warning*/
-.label-nontraite{
-	background-color: #337ab7;
-}
-
-/*label-info*/
-.label-enattente{
-	background-color: #5bc0de;
-}
-
-/*label-default*/
-.label-suspendu{
-	background-color: #006978;
-}
-
 /*label-default*/
 .label-diligence{
 	background-color: #5cb85c;
@@ -63,4 +26,31 @@ th.money, td.money{
 /*label-default*/
 .label-nondiligence{
 	background-color: #006978;
+}
+
+
+/*label-default*/
+.label-suspendu{
+	background-color: #006978;
+}
+
+
+/*couleur par statut des tache*/
+.label-entre1{
+	background-color: #aab6fe;
+}
+
+/*label-warning*/
+.label-sortie1{
+	background-color: #337ab7;
+}
+
+/*label-info*/
+.label-entre2{
+	background-color: #5bc0de;
+}
+
+/*label-success*/
+.label-sortie2{
+	background-color: #5cb85c;
 }
