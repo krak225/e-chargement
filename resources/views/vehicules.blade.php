@@ -153,7 +153,7 @@
 					<td>{{$vehicule->vehicule_immatriculation1}}</td>
 					<td>{{$vehicule->vehicule_numero_chassis}}</td>
 					<td>{{$vehicule->vehicule_numero_declaration}}</td>
-					<td>{{ str_replace('1',' Port', str_replace('2',' OIC', $vehicule->vehicule_statuts))}}</td>
+					<td style="text-transform: uppercase;">{{ str_replace('1',' Port', str_replace('2',' OIC', $vehicule->vehicule_statuts))}}</td>
 				</tr>	
 			@endforeach
 			</tbody> 
