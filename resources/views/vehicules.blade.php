@@ -55,8 +55,27 @@
 					<div class="col-md-12 row">
 						
 						<div class="col-md-4">
+							<span> NImmatriculation 1<span class="text text-danger">*</span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="vehicule_immatriculation1" value="{{ old('vehicule_immatriculation1') }}" required>
+						</div>
+
+						<div class="col-md-4">
 							<span> Marque <span class="text text-danger"></span></span>
 							<input placeholder="" type="text" class="form-control" name="vehicule_marque"  value="{{ old('vehicule_marque') }}">
+						</div>
+						
+						<div class="col-md-4">
+							<span> Numéro déclaration<span class="text text-danger">*</span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="vehicule_numero_declaration" value="{{ old('vehicule_numero_declaration') }}" required>
+						</div>
+						
+					</div>
+					
+					<div class="col-md-12 row" style="margin-top:10px;">	
+						
+						<div class="col-md-4">
+							<span> Immatriculation 2<span class="text text-danger"></span></span>
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="vehicule_immatriculation2" value="{{ old('vehicule_immatriculation2') }}">
 						</div>
 						
 						<div class="col-md-4">
@@ -65,28 +84,10 @@
 						</div>
 						
 						<div class="col-md-4">
-							<span> NImmatriculation 1<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="vehicule_immatriculation1" value="{{ old('vehicule_immatriculation1') }}" required>
-						</div>
-
-					</div>
-					
-					<div class="col-md-12 row" style="margin-top:10px;">	
-						
-						<div class="col-md-4">
-							<span> Immatriculation 2<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="vehicule_immatriculation2" value="{{ old('vehicule_immatriculation2') }}">
-						</div>
-						
-						<div class="col-md-4">
 							<span> Numéro LDC<span class="text text-danger"></span></span>
 							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="vehicule_numero_ldc" value="{{ old('vehicule_numero_ldc') }}">
 						</div>
 
-						<div class="col-md-4">
-							<span> Numéro déclaration<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="vehicule_numero_declaration" value="{{ old('vehicule_numero_declaration') }}">
-						</div>
 						
 					</div>
 					
