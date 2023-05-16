@@ -121,19 +121,19 @@ ul.no_liste_item li {
 						
 						<span class="list-group-item"> 
 							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_entree1) }}</span> 
-							<i class="fa fa- icon-muted"></i> Date d'entrée 1
+							<i class="fa fa- icon-muted"></i> Date d'entrée au port
 						</span>
 						<span class="list-group-item"> 
 							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_sortie1) }}</span> 
-							<i class="fa fa- icon-muted"></i> Date sortie 1
+							<i class="fa fa- icon-muted"></i> Date sortie du port
 						</span>
 						<span class="list-group-item"> 
 							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_entree2) }}</span> 
-							<i class="fa fa- icon-muted"></i> Date d'entrée 2
+							<i class="fa fa- icon-muted"></i> Date d'entrée à l'OIC
 						</span>
 						<span class="list-group-item"> 
 							<span class="badge bg-light">{{ Stdfn::dateTimeFromDB($vehicule->vehicule_date_sortie2) }}</span> 
-							<i class="fa fa- icon-muted"></i> Date sortie 2
+							<i class="fa fa- icon-muted"></i> Date sortie de l'OIC
 						</span>
 						<span class="list-group-item"> 
 							<span class="badge bg-light">{{ $vehicule->vehicule_statuts }}</span> 
