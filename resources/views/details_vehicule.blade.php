@@ -75,6 +75,14 @@ ul.no_liste_item li {
 						</div> 
 					</header---> 
 					<div class="list-group no-radius alt"> 
+						<div class="list-group-item"> 
+							<span class="badge bg-light" style="background: none;">{{ $vehicule->vehicule_numero_immatriculation1 }}</span> 
+							<i class="fa fa- icon-muted"></i> Numéro immatriculation
+						</div> 
+						<div class="list-group-item"> 
+							<span class="badge bg-light" style="background: none;">{{ $vehicule->vehicule_numero_immatriculation2 }}</span> 
+							<i class="fa fa- icon-muted"></i> Numéro immatriculation 2
+						</div> 
 						<span class="list-group-item"> 
 							<span class="badge bg-light">{{ $vehicule->vehicule_code }}</span> 
 							<i class="fa fa- icon-muted"></i> Code 
@@ -91,15 +99,7 @@ ul.no_liste_item li {
 							<span class="badge bg-light" style="background: none;">{{ $vehicule->vehicule_numero_chassis }}</span> 
 							<i class="fa fa- icon-muted"></i> Numéro chassis
 						</div> 
-						<div class="list-group-item"> 
-							<span class="badge bg-light" style="background: none;">{{ $vehicule->vehicule_numero_immatriculation1 }}</span> 
-							<i class="fa fa- icon-muted"></i> Numéro immatriculation
-						</div> 
-						<div class="list-group-item"> 
-							<span class="badge bg-light" style="background: none;">{{ $vehicule->vehicule_numero_immatriculation2 }}</span> 
-							<i class="fa fa- icon-muted"></i> Numéro immatriculation 2
-						</div> 
-									
+								
 					</div> 
 					
 				</section>
