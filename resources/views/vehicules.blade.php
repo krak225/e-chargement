@@ -39,7 +39,7 @@
 
 	<div class="wizard-steps clearfix" id="form-wizard"> 
 		<ul class="steps"> 
-			@if($vehicule->vehicule_statuts == "entree2")
+			@if(Auth::user()->profil_id == 4)
 			<li data-target="#step3" class="active"><span class="badge"><i class="fa fa-plus" ></i></span>Nouveau vehicule</li>
 			@endif
 		</ul> 
