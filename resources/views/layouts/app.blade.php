@@ -281,12 +281,12 @@
 											<li class=""> 
 												<a href="{{route('vehicules_sous_penalite_poste1')}}" class="active"> 
 												<i class="fa fa-angle-right"></i> 
-												<span>Véhicules sous pénalité au poste 1</span> </a> 
+												<span>Véhicules sous pénalité au port</span> </a> 
 											</li>
 											<li class=""> 
 												<a href="{{route('vehicules_sous_penalite_poste2')}}" class="active"> 
 												<i class="fa fa-angle-right"></i> 
-												<span>Véhicules sous pénalité au poste 2</span> </a> 
+												<span>Véhicules sous pénalité à l'OIC</span> </a> 
 											</li>
 											@endif
 										 </ul> 
