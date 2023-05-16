@@ -136,7 +136,7 @@ ul.no_liste_item li {
 							<i class="fa fa- icon-muted"></i> Date sortie de l'OIC
 						</span>
 						<span class="list-group-item"> 
-							<span class="badge bg-light">{{ $vehicule->vehicule_statuts }}</span> 
+							<span class="badge bg-light bg-warning">{{ str_replace('1',' Port', str_replace('2',' OIC', $vehicule->vehicule_statuts))}}</span> 
 							<i class="fa fa- icon-muted"></i> Status
 						</span>
 						
@@ -167,13 +167,13 @@ ul.no_liste_item li {
 						
 						<span class="list-group-item">
 							@if(Auth::user()->profil_id == 3)
-								<span class="bg-light"><span class="label btn-warning btnEntreeSortieVehicule" data-situation="sp1" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor:pointer;" data-title="Véhicule sorti du poste 1" title="Indiquer que le véhicule est sorti du poste 1"><i class="fa fa-edit"></i> Véhicule sorti du poste 1</span></span> 
+								<span class="bg-light"><span class="label btn-warning btnEntreeSortieVehicule" data-situation="sp1" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor:pointer;" data-title="Véhicule sorti du poste 1" title="Indiquer que le véhicule est sorti du poste 1"><i class="fa fa-edit"></i> Véhicule sorti du port</span></span> 
 							@endif
 							@if(Auth::user()->profil_id == 4)
-								<span class="bg-light"><span class="label btn-success btnEntreeSortieVehicule" data-situation="ep2" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor:pointer;" data-title="Véhicule est entré au poste 2" title="Indiquer que le véhicule est entré au poste 2"><i class="fa fa-edit"></i> Véhicule entré au poste 2</span></span> 
+								<span class="bg-light"><span class="label btn-success btnEntreeSortieVehicule" data-situation="ep2" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor:pointer;" data-title="Véhicule est entré au poste 2" title="Indiquer que le véhicule est entré au poste 2"><i class="fa fa-edit"></i> Véhicule entré à l'OIC</span></span> 
 							@endif
 							@if(Auth::user()->profil_id == 5)
-								<span class="bg-light"><span class="label btn-danger btnEntreeSortieVehicule" data-situation="sp2" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor:pointer;" data-title="Véhicule sorti du poste 2" title="Indiquer que le véhicule est sorti du poste 2"><i class="fa fa-edit"></i> Véhicule sorti du poste 2</span></span> 
+								<span class="bg-light"><span class="label btn-danger btnEntreeSortieVehicule" data-situation="sp2" data-vehicule_id="{{$vehicule->vehicule_id}}" style="cursor:pointer;" data-title="Véhicule sorti du poste 2" title="Indiquer que le véhicule est sorti du poste 2"><i class="fa fa-edit"></i> Véhicule sorti de l'OIC</span></span> 
 							@endif
 						</span>
 						
