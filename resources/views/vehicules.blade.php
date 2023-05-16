@@ -56,17 +56,17 @@
 						
 						<div class="col-md-4">
 							<span> Marque <span class="text text-danger"></span></span>
-							<input placeholder="" type="text" class="form-control" name="vehicule_marque"  value="{{ old('vehicule_marque') }}" required>
+							<input placeholder="" type="text" class="form-control" name="vehicule_marque"  value="{{ old('vehicule_marque') }}">
 						</div>
 						
 						<div class="col-md-4">
-							<span> Numéro chassis<span class="text text-danger">*</span></span>
+							<span> Numéro chassis<span class="text text-danger"></span></span>
 							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="vehicule_numero_chassis" value="{{ old('vehicule_numero_chassis') }}">
 						</div>
 						
 						<div class="col-md-4">
 							<span> NImmatriculation 1<span class="text text-danger">*</span></span>
-							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="vehicule_immatriculation1" value="{{ old('vehicule_immatriculation1') }}">
+							<input style="padding-top:0px;" placeholder="" type="text" class="form-control" name="vehicule_immatriculation1" value="{{ old('vehicule_immatriculation1') }}" required>
 						</div>
 
 					</div>
@@ -133,8 +133,8 @@
 					<th style="display:none;"></th>
 					<th colspan="" width="">Action</th>
 					<th width="">Marque</th>
-					<th width="">N° chassis</th>
 					<th width="">Immat 1</th>
+					<th width="">N° chassis</th>
 					<th width="">N° déclaration</th>
 					<th width="">Statut</th>
 				</tr> 
@@ -150,8 +150,8 @@
 					@endif
 					</td>
 					<td>{{$vehicule->vehicule_marque}}</td>
-					<td>{{$vehicule->vehicule_numero_chassis}}</td>
 					<td>{{$vehicule->vehicule_immatriculation1}}</td>
+					<td>{{$vehicule->vehicule_numero_chassis}}</td>
 					<td>{{$vehicule->vehicule_numero_declaration}}</td>
 					<td>{{$vehicule->vehicule_statuts}}</td>
 				</tr>	

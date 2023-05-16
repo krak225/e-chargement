@@ -127,7 +127,7 @@
 										</div> 
 									</li>
 									@auth
-									<li class="@if(Request::is('declarations')) active @endif"> 
+									<!--li class="@if(Request::is('declarations')) active @endif"> 
 										 <a href="#" class=""> 
 											 <i class="fa fa-users icon"> 
 											 <b class="bg-info"></b> </i> 
@@ -143,11 +143,6 @@
 												<i class="fa fa-angle-right"></i> 
 												<span>Toutes les déclarations</span> </a> 
 											</li> 
-											<!--li class=""> 
-												<a href="{{route('declarations')}}" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un declarations</span> </a> 
-											</li--> 
 										 </ul> 
 									</li>
 
@@ -166,12 +161,7 @@
 												<a href="{{route('chargements')}}" class="active"> 
 												<i class="fa fa-angle-right"></i> 
 												<span>Tous les chargements</span> </a> 
-											</li> 
-											<!--li class=""> 
-												<a href="{{route('chargements')}}" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un chargements</span> </a> 
-											</li--> 
+											</li>
 										 </ul> 
 									</li>
 
@@ -191,11 +181,6 @@
 												<i class="fa fa-angle-right"></i> 
 												<span>Tous les empotages</span> </a> 
 											</li> 
-											<!--li class=""> 
-												<a href="{{route('empotages')}}" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un empotages</span> </a> 
-											</li--> 
 										 </ul> 
 									</li>
 
@@ -215,11 +200,6 @@
 												<i class="fa fa-angle-right"></i> 
 												<span>Tous les déclarants</span> </a> 
 											</li> 
-											<!--li class=""> 
-												<a href="{{route('declarants')}}" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un declarants</span> </a> 
-											</li--> 
 										 </ul> 
 									</li>
 
@@ -239,11 +219,6 @@
 												<i class="fa fa-angle-right"></i> 
 												<span>Tous les expéditeurs</span> </a> 
 											</li> 
-											<!--li class=""> 
-												<a href="{{route('expediteurs')}}" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un expediteurs</span> </a> 
-											</li--> 
 										 </ul> 
 									</li>
 
@@ -263,11 +238,6 @@
 												<i class="fa fa-angle-right"></i> 
 												<span>Tous les destinataires</span> </a> 
 											</li> 
-											<!--li class=""> 
-												<a href="{{route('destinataires')}}" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un destinataires</span> </a> 
-											</li--> 
 										 </ul> 
 									</li>
 
@@ -288,13 +258,8 @@
 												<i class="fa fa-angle-right"></i> 
 												<span>Tous les agents douane</span> </a> 
 											</li> 
-											<!--li class=""> 
-												<a href="{{route('agent_douanes')}}" class="active"> 
-												<i class="fa fa-angle-right"></i> 
-												<span>Enregistrer un agent_douanes</span> </a> 
-											</li--> 
 										 </ul> 
-									</li>
+									</li-->
 
 									<li class="@if(Request::is('vehicules','vehicules_sous_penalite_poste1','vehicules_sous_penalite_poste2')) active @endif"> 
 										 <a href="#" class=""> 
